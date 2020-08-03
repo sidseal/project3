@@ -5,7 +5,8 @@ const userSchema = new Schema({
   name: { type: String, required: true },
   age: { type: Number, required: true },
   genderpreference: { type: String, required: true},
-  pic: { type: Date, default: Date.now }
+  img: { data: Buffer, contentType: String },
+  shows: [{type: String}]
 });
 
 const User = mongoose.model("User", userSchema);
