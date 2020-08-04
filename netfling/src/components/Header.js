@@ -1,11 +1,10 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import logo from "../assets/ourlogo.png";
 
 function Header() {
     return (
         <div>
-        <img src={logo} alt="logo"></img>
+        <img src="./assets/ourlogo.png" alt="logo"></img>
         </div>
     );
 }
