@@ -12,35 +12,35 @@ This application was designed to allow users to meet others online by comparing 
 ​
 ## User Story
 ​
-AS A user
+​AS A user
 ​
-I WANT to match with individuals who share my taste in television and film
+​I WANT to match with individuals who share my taste in television and film
 ​
-SO THAT I can meet potential life partners or friends
+​SO THAT I can meet potential life partners or friends
 ​
 ## Acceptance Criteria
 ​
-GIVEN that I want to go on a virtual date
+​GIVEN that I want to go on a virtual date
 ​
-WHEN I create a profile
+​WHEN I create a profile
 ​
-THEN I am able to edit a profile picture, my gender and partner preference, and a list of favorite movies and series from Netflix
+​THEN I am able to edit a profile picture, my gender and partner preference, and a list of favorite movies and series from Netflix
 ​
-WHEN I create my list of movies and TV series 
+​WHEN I create my list of movies and TV series 
 ​
-THEN I am presented with people who made the same selections 
+​THEN I am presented with people who made the same selections 
 ​
-WHEN I scroll down the page
+​WHEN I scroll down the page
 ​
-THEN I find rows of potential people to date
+​THEN I find rows of potential people to date
 ​
-WHEN I click on a person’s profile
+​WHEN I click on a person’s profile
 ​
-THEN I am presented with the option to schedule a date
+​THEN I am presented with the option to schedule a date
 ​
-WHEN I select a person
+​WHEN I select a person
 ​
-THEN their profiles are appended to my queue 
+​THEN their profiles are appended to my queue 
 ​
 ## Development
 ​
