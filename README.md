@@ -55,14 +55,17 @@ We would like to add functionality that would allow our users to communicate thr
 * Name: Laura Hernandez
 * Github: [Laura915](https://github.com/Laura915)
 * Email: 
+
 ​
 * Name: Macy Molina
 * Github: [Macymo](https://github.com/Macymo)
 * Email: 
+
 ​
 * Name: Siddhant Seal
 * Github: [sidseal](https://github.com/sidseal)
 * Email: 
+
 ​
 * Name: Ben Huntley
 * Github: [b7t7h7](https://github.com/b7t7h7)
