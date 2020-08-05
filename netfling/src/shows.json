@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Shameless",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 2,
+    "name": "The Umbrella Academy",
+    "genre": "Sci-Fi",
+    "type": "Series"
+  },
+  {
+    "id": 3,
+    "name": "Indian MatchMaking ",
+    "genre": "Reality",
+    "type": "Series"
+  },
+  {
+    "id": 4,
+    "name": "Love on the Spectrum",
+    "genre": "Reality",
+    "type": "Series"
+  },
+  {
+    "id": 5,
+    "name": "The Kissing Booth 2",
+    "genre": "Comedy",
+    "type": "Movie"
+  },
+  {
+    "id": 6,
+    "name": "Pride & Prejudice",
+    "genre": "Romance",
+    "type": "Movie"
+  },
+  {
+    "id": 7,
+    "name": "In The Dark",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 8,
+    "name": "The Last Dance",
+    "genre": "Documentary",
+    "type": "Movie"
+  },
+  {
+    "id": 9,
+    "name": "Private Practice",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 10,
+    "name": "Down To Earth with Zac Effron",
+    "genre": "Documentary",
+    "type": "Series"
+  },
+  {
+    "id": 11,
+    "name": "Immigration Nation",
+    "genre": "Documentary",
+    "type": "Series"
+  },
+  {
+    "id": 12,
+    "name": "Skin Decision: Before and After",
+    "genre": "Reality",
+    "type": "Series"
+  },
+  {
+    "id": 13,
+    "name": "Avatar: The Last Airbender",
+    "genre": "Sci-Fi",
+    "type": "Movie"
+  },
+  {
+    "id": 14,
+    "name": "Connected",
+    "genre": "Documentary",
+    "type": "Series"
+  },
+  {
+    "id": 15,
+    "name": "Hart of Dixie",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 16,
+    "name": "Cursed",
+    "genre": "Sci-Fi",
+    "type": "Series"
+  },
+  {
+    "id": 17,
+    "name": "Eternal Sunshine of the Spotless Mind",
+    "genre": "Drama",
+    "type": "Movie"
+  },
+  {
+    "id": 18,
+    "name": "Community",
+    "genre": "Comedy",
+    "type": "Series"
+  },
+  {
+    "id": 19,
+    "name": "How do you Know",
+    "genre": "Romance",
+    "type": "Movie"
+  },
+  {
+    "id": 20,
+    "name": "Desperados",
+    "genre": "Comedy",
+    "type": "Movie"
+  },
+  {
+    "id": 21,
+    "name": "An Education",
+    "genre": "Romance",
+    "type": "Movie"
+  },
+  {
+    "id": 22,
+    "name": "The Old Guard",
+    "genre": "Action",
+    "type": "Movie"
+  },
+  {
+    "id": 23,
+    "name": "Quantico",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 24,
+    "name": "i'm sorry",
+    "genre": "Comedy",
+    "type": "Series"
+  },
+  {
+    "id": 25,
+    "name": "ZooKeeper",
+    "genre": "Comedy",
+    "type": "Movie"
+  },
+  {
+    "id": 26,
+    "name": "Hannibal",
+    "genre": "Thriller",
+    "type": "Series"
+  },
+  {
+    "id": 27,
+    "name": "Queen of the South",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 28,
+    "name": "Get Even",
+    "genre": "Drama",
+    "type": "Series"
+  },
+  {
+    "id": 29,
+    "name": "Designated Survivor",
+    "genre": "Thriller",
+    "type": "Series"
+  },
+  {
+    "id": 30,
+    "name": "Jane The Virgin",
+    "genre": "Romance",
+    "type": "Series"
+  }
+]
