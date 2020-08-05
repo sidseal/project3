@@ -3,25 +3,6 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const multer = require('multer');
-const axios = require("axios");
-axios({
-  "method":"GET",
-  "url":"https://netflix-unofficial.p.rapidapi.com/api/search",
-  "headers":{
-  "content-type":"application/octet-stream",
-  "x-rapidapi-host":"netflix-unofficial.p.rapidapi.com",
-  "x-rapidapi-key":"bd03197627mshdf8a369cd347b3bp1a2797jsn4466123284cf",
-  "useQueryString":true
-  },"params":{
-  "genre":"comedy"
-  }
-  })
-  .then((response)=>{
-    console.log(response)
-  })
-  .catch((error)=>{
-    console.log(error)
-  })
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
