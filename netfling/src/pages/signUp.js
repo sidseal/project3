@@ -1,14 +1,14 @@
 import React from "react";
 import { EmailInput, PasswordInput, FormBtn } from "../components/Form";
 
-function Login() {
+function SignUp() {
     return (
         <form>
         <EmailInput />
         <PasswordInput />
-        <FormBtn name="Login"/>
+        <FormBtn name="Sign-Up"/>
         </form>
     );
 }
 
-export default Login;
+export default SignUp;
