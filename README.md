@@ -1,6 +1,6 @@
 # Group-Project NetFling
 ​
-[![Generic Badge](https://img.shields.io/badge/VERSION-1.1.0-BLUE.svg)](https://shields.io/)
+[![Generic Badge](https://img.shields.io/badge/version-1.1.0-brightgreen)](https://shields.io/)
 ​
 [Repo: NetFling Application](https://github.com/sidseal/project3/)
 ​
