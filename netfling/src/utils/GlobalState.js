@@ -8,7 +8,7 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case ADD_USER:
+        case SET_CURRENT_USER:
             return {
                 ...state,
                 Users: [action.currentUser,...state.Users]
@@ -20,7 +20,8 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
-      Users: [],
+      // matches for the current user 
+      Matches: [],
       currentUser: {
         _id: 0,
         email: "",
