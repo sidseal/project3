@@ -4,3 +4,7 @@ removeChoice = id => {
     // Set this.state.shows equal to the new shows array
     this.setState({ shows });
   };
+
+//   <span onClick={() => props.removeChoice(props.id)} className="remove">
+//   𝘅
+// </span>
