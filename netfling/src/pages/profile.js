@@ -1,9 +1,9 @@
 import React from "react";
-import Choices from "../components/Choices.js";
+import ShowChoices from "../components/Choices.js";
 
 function RenderProfile() {
     return (
-        <Choices></Choices>
+        <ShowChoices></ShowChoices>
     )
 }
 

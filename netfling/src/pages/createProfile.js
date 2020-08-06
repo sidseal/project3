@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { User, Dropdown} from "../components/Create";
 import { FormBtn } from "../components/Form";
 // import Form from "../components/Form"
-    // import Choices from "../components/Choices"
+import ShowChoices from "../components/Choices"
 import shows from "../../src/shows.json";
 // import { DropdownList, Dropdown} from "../components/Create";
 
@@ -16,11 +16,13 @@ state = {
      
     return (
      <div>
-            {/* {this.state.shows.map(show => ( 
-        <Choices shows={shows} 
-      removeChoice={this.removeChoice}
+          
+        <ShowChoices shows={shows.filter(show =>
+          show.type === "Series"
+        )} 
+          // removeChoice={this.removeChoice}
          />
-     ))} */}
+     
         <User />
         <Dropdown name="">Gender/Preferences</Dropdown>
         <Dropdown name="">Series</Dropdown>
