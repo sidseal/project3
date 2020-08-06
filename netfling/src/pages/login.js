@@ -1,14 +1,13 @@
 import React from "react";
 import { EmailInput, PasswordInput, FormBtn } from "../components/Form";
-// import Form from "../components/Form";
 import axios from "axios"
-
 
 function Login() {
 
     function sendData(event){
         event.preventDefault()
         console.log("sendData()")
+        //hash password before you send
         axios.post("/api/login", {isData: true}).then(
             response=>console.log(response)
         )
@@ -18,7 +17,7 @@ function Login() {
         <form>
         <EmailInput />
         <PasswordInput />
-        <FormBtn onClick={sendData}>Login</FormBtn>
+        <FormBtn onClick={sendData}> Login</FormBtn>
         </form>
     );
 }
