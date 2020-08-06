@@ -6,7 +6,7 @@ function SignUp() {
         <form>
         <EmailInput />
         <PasswordInput />
-        <FormBtn name="Sign-Up"/>
+        <FormBtn>SignUp</FormBtn>
         </form>
     );
 }

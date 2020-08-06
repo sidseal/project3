@@ -6,7 +6,7 @@ function Login() {
         <form>
         <EmailInput />
         <PasswordInput />
-        <FormBtn name="Login"/>
+        <FormBtn>Login</FormBtn>
         </form>
     );
 }
