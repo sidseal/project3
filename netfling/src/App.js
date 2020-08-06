@@ -13,12 +13,15 @@ function App() {
       password: "",
     }
   );
+  
 
   return (
     <div className="App">
      
       <Header />
+      
       <Login setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
+
       <Footer />
    
 

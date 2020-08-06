@@ -17,7 +17,7 @@ function Login({ setLoggedUser, loggedUser }) {
     
     console.log("its in the handlesubmit event ");
     // find way to set unique id, returns as undefined
-    console.log("username is " + loggedUser.id);
+    console.log("userId is " + loggedUser.id);
     console.log("username is " + loggedUser.email);
     console.log("password is " + loggedUser.password);
   };

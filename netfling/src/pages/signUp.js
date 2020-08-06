@@ -1,21 +1,63 @@
-import React, { useRef } from "react";
-import { EmailInput, PasswordInput, FormBtn } from "../components/Form";
-import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_USER} from "../../utils/actions";
-// import API from "../../utils/API";
+import React from "react";
 
-function SignUp() {
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const [state, dispatch] = useStoreContext();
 
-    return (
-        <form>
-        <EmailInput />
-        <PasswordInput />
-        <FormBtn name="Sign-Up"/>
-        </form>
-    );
+function Login({ setLoggedUser, loggedUser }) {
+
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setLoggedUser({ ...loggedUser, [name]: value })
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    // api call to confirm user
+
+    // route to profile
+    
+    console.log("its in the handlesubmit event ");
+    // find way to set unique id, returns as undefined
+    
+    console.log("userId is " + loggedUser.id);
+    console.log("username is " + loggedUser.email);
+    console.log("password is " + loggedUser.password);
+  };
+
+  return (
+    <>
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+          onChange={handleInputChange}
+            id="email"
+            type="text"
+            className="validate"
+            name="email"
+          />
+          <label >Email</label>
+        </div>
+      </div>
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+          onChange={handleInputChange}
+            id="password"
+            type="password"
+            className="validate"
+            name="password"
+          />
+          <label >Password</label>
+        </div>
+      </div>
+      <button className="btn waves-effect waves-light"
+        type="submit"
+        name="action"
+        onClick={handleSubmit}
+      >Sign Up
+             <i className="material-icons right">send</i>
+      </button>
+    </>
+  );
 }
 
-export default SignUp;
+export default Login;
