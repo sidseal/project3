@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function SignUp({ setLoggedUser, loggedUser }) {
 
@@ -50,6 +51,11 @@ function SignUp({ setLoggedUser, loggedUser }) {
           <label >Password</label>
         </div>
       </div>
+      <Link to={"/login"} >
+        <strong>
+          Login 
+        </strong>
+      </Link>
       <button className="btn waves-effect waves-light"
         type="submit"
         name="action"
