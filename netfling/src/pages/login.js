@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+// import SignUp from "../pages/signUp";
 
 function Login({ setLoggedUser, loggedUser }) {
 
@@ -7,7 +9,7 @@ function Login({ setLoggedUser, loggedUser }) {
   function handleInputChange(e) {
     const { name, value } = e.target;
     //Make api call to find loggedUser id
-    
+
     // setLoggedUser loggedUser to add id property
     setLoggedUser({ ...loggedUser, [name]: value })
   };
@@ -53,6 +55,11 @@ function Login({ setLoggedUser, loggedUser }) {
           <label >Password</label>
         </div>
       </div>
+      <Link to={"/signup"} >
+        <strong>
+          Sign Up
+        </strong>
+      </Link>
       <button className="btn waves-effect waves-light"
         type="submit"
         name="action"

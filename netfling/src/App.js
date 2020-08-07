@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Login from "./pages/login";
+import SignUp from "./pages/signUp";
 import './App.css';
 
 function App() {
@@ -20,9 +21,15 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
+
           <Route exact path={["/", "/login"]}>
             <Login setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
           </Route>
+
+          <Route path="/signup">
+            <SignUp/>
+          </Route>
+
         </Switch>
         <Footer />
       </div>

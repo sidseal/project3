@@ -1,6 +1,6 @@
 import React from "react";
 
-function SingUp({ setLoggedUser, loggedUser }) {
+function SignUp({ setLoggedUser, loggedUser }) {
 
   // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
