@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const multer = require('multer');
+const mongoose = require("mongoose")
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -15,8 +16,9 @@ app.use((req,res,next)=>{
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
-  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", { useNewUrlParser: true });
 }
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
+
 
 // Define API routes here
 app.use("/api", require("./routes/api"))
