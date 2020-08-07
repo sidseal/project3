@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
 
 const UserSeed = [
@@ -12,11 +11,11 @@ const UserSeed = [
         age: 73,
         genderpreference: "female",
         img: "https://randomuser.me/api/portraits/thumb/women/5.jpg",
-        shows: []
-
+        shows: [
+            "Shameless", "Indian MatchMaking ", "Avatar: The Last Airbender","Connected"
+        ]
     }
 ]
-
 
 db.User
     .remove({})
