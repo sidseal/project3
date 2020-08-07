@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 function Login({ setLoggedUser, loggedUser }) {
 
@@ -7,11 +8,14 @@ function Login({ setLoggedUser, loggedUser }) {
     setLoggedUser({ ...loggedUser, [name]: value })
   };
 
+  
   const handleSubmit = e => {
     e.preventDefault();
 
     // api call to confirm user
-
+    axios.post("/api/login", {isData: true}).then(
+        response=>console.log(response)
+    )
     // route to profile
     
     console.log("its in the handlesubmit event ");

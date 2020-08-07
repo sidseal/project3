@@ -4,7 +4,7 @@ const controllers= require("../controllers/login")
 
 router
   .route("/login")
-//   .get(postsController.findAll)
+//   .get(controllers.findAll)
   .post(controllers.login);
 
   module.exports= router;
