@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Login from "./pages/login";
@@ -13,19 +14,19 @@ function App() {
       password: "",
     }
   );
-  
 
   return (
-    <div className="App">
-     
-      <Header />
-      
-      <Login setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
-
-      <Footer />
-   
-
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path={["/", "/login"]}>
+            <Login setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
