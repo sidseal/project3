@@ -53,7 +53,6 @@ function SingUp({ setLoggedUser, loggedUser }) {
         name="action"
         onClick={handleSubmit}
       >Sign Up
-             <i className="material-icons right">send</i>
       </button>
     </>
   );
