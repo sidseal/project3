@@ -2,21 +2,23 @@ import React from "react";
 
 function SingUp({ setLoggedUser, loggedUser }) {
 
+  // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
+    // Generate random id #
+
     const { name, value } = e.target;
+    // Add _id protery to loggeduser state
     setLoggedUser({ ...loggedUser, [name]: value })
   };
-
+ // handle Submit event
   const handleSubmit = e => {
     e.preventDefault();
 
-    // api call to confirm user
+    // api call to AddUser
 
-    // route to profile
-    
-    console.log("its in the handlesubmit event ");
-    // find way to set unique id, returns as undefined
-    
+    // route to createProfile
+
+    console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);
     console.log("username is " + loggedUser.email);
     console.log("password is " + loggedUser.password);
@@ -27,7 +29,7 @@ function SingUp({ setLoggedUser, loggedUser }) {
       <div className="row">
         <div className="input-field col s12">
           <input
-          onChange={handleInputChange}
+            onChange={handleInputChange}
             id="email"
             type="text"
             className="validate"
@@ -39,7 +41,7 @@ function SingUp({ setLoggedUser, loggedUser }) {
       <div className="row">
         <div className="input-field col s12">
           <input
-          onChange={handleInputChange}
+            onChange={handleInputChange}
             id="password"
             type="password"
             className="validate"
