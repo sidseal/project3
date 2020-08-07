@@ -10,7 +10,7 @@ function App() {
   // Current User
   const [loggedUser, setLoggedUser] = useState(
     {
-      _id: 0,
+      id: 0,
       email: "",
       password: "",
     }
@@ -27,7 +27,7 @@ function App() {
           </Route>
 
           <Route path="/signup">
-            <SignUp/>
+            <SignUp setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
           </Route>
 
         </Switch>

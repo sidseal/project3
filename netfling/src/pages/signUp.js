@@ -9,8 +9,9 @@ function SignUp({ setLoggedUser, loggedUser }) {
 
     const { name, value } = e.target;
     // Add _id protery to loggeduser state
-    setLoggedUser({ ...loggedUser, [name]: value })
+    setLoggedUser({ ...loggedUser, [name]: value });
   };
+
   // handle Submit event
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,6 +19,7 @@ function SignUp({ setLoggedUser, loggedUser }) {
     // api call to AddUser
 
     // route to createProfile
+    // window.location.assign("/create");
 
     console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);

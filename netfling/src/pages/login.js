@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import SignUp from "../pages/signUp";
 
 function Login({ setLoggedUser, loggedUser }) {
 
