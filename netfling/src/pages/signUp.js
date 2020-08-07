@@ -11,7 +11,7 @@ function SignUp({ setLoggedUser, loggedUser }) {
     // Add _id protery to loggeduser state
     setLoggedUser({ ...loggedUser, [name]: value })
   };
- // handle Submit event
+  // handle Submit event
   const handleSubmit = e => {
     e.preventDefault();
 
