@@ -56,7 +56,6 @@ function Login({ setLoggedUser, loggedUser }) {
         name="action"
         onClick={handleSubmit}
       >Login
-             <i className="material-icons right">send</i>
       </button>
     </>
   );
