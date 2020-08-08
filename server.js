@@ -25,7 +25,7 @@ app.use("/api", require("./routes/api"))
 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./netfling/public/index.html"));
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {
