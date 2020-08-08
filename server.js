@@ -14,7 +14,7 @@ app.use((req,res,next)=>{
 })
 // IMG middleware needed here
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("netfling/build"));
 
 }
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
