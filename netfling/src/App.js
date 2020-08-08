@@ -30,16 +30,16 @@ function App() {
           </Route>
 
           <Route path="/signup">
-            <SignUp setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+            <SignUp setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
           </Route>
 
           <Route exact path="/create">
-            <CreateProfile />
+            <CreateProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
           </Route>
 
           <Route exact path="/profile">
             {/* <FormBtn onClick={window.location.assign("/profile")}>Create My Profile!</FormBtn> */}
-            <RenderProfile />
+            <RenderProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
           </Route>
 
         </Switch>
