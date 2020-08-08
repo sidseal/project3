@@ -1,6 +1,6 @@
 import React from "react";
 import "../../src/shows.json";
-import { PromiseProvider } from "mongoose";
+// import { PromiseProvider } from "mongoose";
 
 export function User(props) {
     return (
@@ -22,10 +22,9 @@ export function Dropdown(props) {
     );
 }
 
-// export function DropdownList(props) {
-//   return (
-    
-//     <li>{props.name}</li>
-    
-//   );
-// }
+export function FormBtn(props) {
+  return (
+      <button className="btn waves-effect waves-light" type="submit" name="action" {...props}>{props.children}
+      </button>
+  );
+}

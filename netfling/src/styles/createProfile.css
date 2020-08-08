@@ -1,0 +1,10 @@
+.card {
+    margin: 20%;
+}
+
+#thumbnail {
+    align-content: center;
+    height: 100px;
+    width: 100px;
+    margin-left: 43%;
+}
