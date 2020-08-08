@@ -9,8 +9,8 @@
     "start:dev": "concurrently \"nodemon --ignore 'netfling/*'\" \"npm run client\"",
     "client": "cd netfling && npm run start",
     "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "install": "cd netfling && npm install",
+    "build": "cd netfling && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "author": "",
