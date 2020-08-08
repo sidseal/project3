@@ -1,25 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Login({ setLoggedUser, loggedUser }) {
 
+  // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
     const { name, value } = e.target;
+    //Make api call to find loggedUser id
+
+    // setLoggedUser loggedUser to add id property
     setLoggedUser({ ...loggedUser, [name]: value })
   };
 
-  
+  // handle Submit event
   const handleSubmit = e => {
     e.preventDefault();
-
-    // api call to confirm user
-    axios.post("/api/login", {isData: true}).then(
-        response=>console.log(response)
+    // api call to confirmUser
+    axios.post("/api/login", { isData: true }).then(
+      response => console.log(response)
     )
     // route to profile
-    
-    console.log("its in the handlesubmit event ");
-    // find way to set unique id, returns as undefined
+
+    console.log("Inside the login handlesubmit event");
     console.log("userId is " + loggedUser.id);
     console.log("username is " + loggedUser.email);
     console.log("password is " + loggedUser.password);
@@ -30,7 +33,7 @@ function Login({ setLoggedUser, loggedUser }) {
       <div className="row">
         <div className="input-field col s12">
           <input
-          onChange={handleInputChange}
+            onChange={handleInputChange}
             id="email"
             type="text"
             className="validate"
@@ -42,7 +45,7 @@ function Login({ setLoggedUser, loggedUser }) {
       <div className="row">
         <div className="input-field col s12">
           <input
-          onChange={handleInputChange}
+            onChange={handleInputChange}
             id="password"
             type="password"
             className="validate"
@@ -51,6 +54,11 @@ function Login({ setLoggedUser, loggedUser }) {
           <label>Password</label>
         </div>
       </div>
+      <Link to={"/signup"} >
+        <strong>
+          Sign Up
+        </strong>
+      </Link>
       <button className="btn waves-effect waves-light"
         type="submit"
         name="action"
