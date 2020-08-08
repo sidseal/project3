@@ -1,13 +1,16 @@
 import React from "react";
+
 import shows from "../../src/shows.json";
 import ShowChoices from "../components/Choices";
 import "../styles/profile.css";
 
 
 
+
 function RenderProfile({setLoggedUser,loggedUser}) {
   console.log({setLoggedUser,loggedUser})
     return (
+
       
         <div>
             <h3>Hey MacyMo!</h3>
@@ -49,6 +52,7 @@ function RenderProfile({setLoggedUser,loggedUser}) {
         </div>
         </div>
         
+
     );
 }
 

@@ -42,6 +42,15 @@ function App() {
             <RenderProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
           </Route>
 
+          <Route exact path="/create">
+            <CreateProfile />
+          </Route>
+
+          <Route exact path="/profile">
+            {/* <FormBtn onClick={window.location.assign("/profile")}>Create My Profile!</FormBtn> */}
+            <RenderProfile />
+          </Route>
+
         </Switch>
         <Footer />
       </div>

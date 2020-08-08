@@ -18,6 +18,9 @@ function SignUp({ setLoggedUser, loggedUser }) {
 
     // route to createProfile
 
+  
+
+
     console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);
     console.log("username is " + loggedUser.email);
