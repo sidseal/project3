@@ -4,6 +4,9 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Login from "./pages/login";
 import SignUp from "./pages/signUp";
+import CreateProfile from "./pages/createProfile";
+import RenderProfile from "./pages/profile";
+// import { FormBtn } from "./components/Create";
 import './App.css';
 
 function App() {
@@ -28,6 +31,15 @@ function App() {
 
           <Route path="/signup">
             <SignUp setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+          </Route>
+
+          <Route exact path="/create">
+            <CreateProfile />
+          </Route>
+
+          <Route exact path="/profile">
+            {/* <FormBtn onClick={window.location.assign("/profile")}>Create My Profile!</FormBtn> */}
+            <RenderProfile />
           </Route>
 
         </Switch>

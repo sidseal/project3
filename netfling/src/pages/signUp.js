@@ -19,7 +19,7 @@ function SignUp({ setLoggedUser, loggedUser }) {
     // api call to AddUser
 
     // route to createProfile
-    // window.location.assign("/create");
+    window.location.assign("/create");
 
     console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);

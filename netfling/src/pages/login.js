@@ -39,7 +39,7 @@ function Login({ setLoggedUser, loggedUser }) {
             className="validate"
             name="email"
           />
-          <label >Email</label>
+          <label>Email</label>
         </div>
       </div>
       <div className="row">
@@ -51,7 +51,7 @@ function Login({ setLoggedUser, loggedUser }) {
             className="validate"
             name="password"
           />
-          <label >Password</label>
+          <label>Password</label>
         </div>
       </div>
       <Link to={"/signup"} >

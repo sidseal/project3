@@ -1,10 +1,16 @@
 import React from "react";
-import ShowChoices from "../components/Choices.js";
+// import shows from "../../src/shows.json";
+// import ShowChoices from "../components/Choices";
+
 
 function RenderProfile() {
     return (
-        <ShowChoices></ShowChoices>
-    )
+        <div>Hello WORLD</div>
+        // <ShowChoices shows={shows.filter(show =>
+        //     show.type === "Series"
+        //   )} 
+        //   />
+    );
 }
 
 export default RenderProfile;
