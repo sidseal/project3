@@ -16,9 +16,12 @@ function SignUp({ setLoggedUser, loggedUser }) {
   // handle Submit event
   const handleSubmit = e => {
     // api call to AddUser
-    API.saveUser({_id: loggedUser.id, email: loggedUser.email,
+    API.saveUser({
+      //_id: loggedUser.id, 
+      email: loggedUser.email,
       password: loggedUser.password,})
-    .then(response=>console.log(response))
+    .then(response=>console.log("handleSubmit",response))
+    .catch(response=>console.log("handleSubmiterr",response))
 
 
     // route to createProfile
