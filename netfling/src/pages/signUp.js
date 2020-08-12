@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import API from "../utils/API"
 
 function SignUp({ setLoggedUser, loggedUser }) {
 
@@ -15,6 +16,10 @@ function SignUp({ setLoggedUser, loggedUser }) {
   // handle Submit event
   const handleSubmit = e => {
     // api call to AddUser
+    API.saveUser({_id: loggedUser.id, email: loggedUser.email,
+      password: loggedUser.password,})
+    .then(response=>console.log(response))
+
 
     // route to createProfile
 
