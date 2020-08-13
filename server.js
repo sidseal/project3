@@ -14,7 +14,7 @@ app.use((req,res,next)=>{
 })
 // IMG middleware needed here
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("netfling/build"));
 
 }
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
@@ -25,7 +25,7 @@ app.use("/api", require("./routes/api"))
 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./netfling/public/index.html"));
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {

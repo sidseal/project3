@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import API from "../utils/API"
 
 function SignUp({ setLoggedUser, loggedUser }) {
 
@@ -14,12 +15,20 @@ function SignUp({ setLoggedUser, loggedUser }) {
 
   // handle Submit event
   const handleSubmit = e => {
-    e.preventDefault();
-
     // api call to AddUser
+    API.saveUser({
+      //_id: loggedUser.id, 
+      email: loggedUser.email,
+      password: loggedUser.password,
+    })
+    .then(response=>console.log("handleSubmit",response))
+    .catch(response=>console.log("handleSubmiterr",response))
+
 
     // route to createProfile
-    // window.location.assign("/create");
+
+  
+
 
     console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);
@@ -58,12 +67,13 @@ function SignUp({ setLoggedUser, loggedUser }) {
           Login 
         </strong>
       </Link>
-      <button className="btn waves-effect waves-light"
-        type="submit"
-        name="action"
-        onClick={handleSubmit}
-      >Sign Up
-      </button>
+      <Link to={"/create"} onClick={handleSubmit}>
+        {/* // className="btn waves-effect waves-light"
+        // type="submit"
+  // name="action" */}
+          
+      Sign Up
+      </Link>
     </>
   );
 }

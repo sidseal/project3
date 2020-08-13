@@ -1,0 +1,17 @@
+.card {
+    margin: 20%;
+}
+
+#thumbnail {
+    align-content: center;
+    height: 100px;
+    width: 100px;
+    margin-left: 43%;
+
+}
+
+.dropdown-trigger {
+    background-color: rgb(199, 47, 47);
+
+
+}

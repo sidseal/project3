@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../styles/login.css";
+
 
 function Login({ setLoggedUser, loggedUser }) {
 
