@@ -19,7 +19,8 @@ function SignUp({ setLoggedUser, loggedUser }) {
     API.saveUser({
       //_id: loggedUser.id, 
       email: loggedUser.email,
-      password: loggedUser.password,})
+      password: loggedUser.password,
+    })
     .then(response=>console.log("handleSubmit",response))
     .catch(response=>console.log("handleSubmiterr",response))
 
