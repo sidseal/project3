@@ -13,7 +13,7 @@ function App() {
   // Current User
   const [loggedUser, setLoggedUser] = useState(
     {
-      id: 0,
+      id: "",
       email: "",
       password: "",
     }

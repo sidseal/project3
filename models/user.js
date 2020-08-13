@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
-  username: { type: String, required: true },
-  age: { type: Number, required: true },
-  genderpreference: { type: String, required: true},
+  username: { type: String, required: false },
+  age: { type: Number, required: false },
+  genderpreference: { type: String, required: false},
   img: { type: String },
   shows: [{type: String}]
 });
