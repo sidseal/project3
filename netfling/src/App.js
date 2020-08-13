@@ -8,6 +8,7 @@ import CreateProfile from "./pages/createProfile";
 import RenderProfile from "./pages/profile";
 // import { FormBtn } from "./components/Create";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // Current User
