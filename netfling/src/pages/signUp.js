@@ -64,7 +64,8 @@ function SignUp({ setLoggedUser, loggedUser }) {
         </div>
       </div>
 
-      <Link to={"/login"} >
+      <Link to={"/login"}>
+
         <strong>
           Login
         </strong>
