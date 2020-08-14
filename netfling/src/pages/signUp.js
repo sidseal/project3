@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API"
+import API from "../utils/API";
+import "../styles/signUp.css";
 
 function SignUp({ setLoggedUser, loggedUser }) {
 
@@ -21,13 +22,13 @@ function SignUp({ setLoggedUser, loggedUser }) {
       email: loggedUser.email,
       password: loggedUser.password,
     })
-    .then(response=>console.log("handleSubmit",response))
-    .catch(response=>console.log("handleSubmiterr",response))
+      .then(response => console.log("handleSubmit", response))
+      .catch(response => console.log("handleSubmiterr", response))
 
 
     // route to createProfile
 
-  
+
 
 
     console.log("Inside signUp handlesubmit event ");
@@ -62,17 +63,20 @@ function SignUp({ setLoggedUser, loggedUser }) {
           <label >Password</label>
         </div>
       </div>
+
       <Link to={"/login"}>
+
         <strong>
-          Login 
+          Login
         </strong>
       </Link>
-      <Link to={"/create"} onClick={handleSubmit}>
-        {/* // className="btn waves-effect waves-light"
-        // type="submit"
-  // name="action" */}
-          
-      Sign Up
+
+      <Link to={"/create"} onClick={handleSubmit} >
+        <button
+          className="btn waves-effect waves-light"
+          type="submit"
+          name="action">
+          Sign Up</button>
       </Link>
     </>
   );
