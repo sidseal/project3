@@ -3,10 +3,10 @@ const router = require("express").Router();
 const controllers= require("../../controllers/login");
 
 
-// router
-//   .route("/login")
+router
+  .route("/login")
 // //   .get(controllers.findAll)
-//   .post(controllers.login);
+  .post(controllers.loginUser);
 
 // Matches with "/api/posts"
 router

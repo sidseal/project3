@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import API from "../utils/API";
 import "../styles/login.css";
 
 
@@ -18,10 +18,21 @@ function Login({ setLoggedUser, loggedUser }) {
   // handle Submit event
   const handleSubmit = e => {
     e.preventDefault();
+    API.loginUser({
+      email: loggedUser.email,
+      password: loggedUser.password
+      
+      // email: req.body.email,
+      // password: req.body.password,
+    })
+    .then(response=>console.log("handleSubmit",response))
+    .catch(response=>console.log("handleSubmiterr",response))
+    
+
     // api call to confirmUser
-    axios.post("/api/login", { isData: true }).then(
-      response => console.log(response)
-    )
+    // axios.post("/api/login", { isData: true }).then(
+    //   response => console.log(response)
+    // )
     // route to profile
 
     console.log("Inside the login handlesubmit event");
