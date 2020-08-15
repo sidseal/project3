@@ -1,4 +1,5 @@
 import axios from "axios";
+// import { getMatches } from "../../../controllers/login";
 
 export default {
     // Gets all users
@@ -19,6 +20,11 @@ export default {
     },
     loginUser: function({email,password}){
       return axios.post("/api/users/login", { email,password}).then(
+          response => console.log(response)
+        )
+    },
+    getMatches: function(email){
+      return axios.post("/api/users/matches",{email}).then(
           response => console.log(response)
         )
     }

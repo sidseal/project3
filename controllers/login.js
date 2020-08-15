@@ -53,10 +53,10 @@ module.exports = {
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
     },
-    
+
     loginUser: function (req, res) {
         const myPlaintextPassword = req.body.password
-        db.User.findOne({email: req.body.email})
+        db.User.findOne({ email: req.body.email })
             .then(dbUser => {
                 return bcrypt.compare(myPlaintextPassword, dbUser.password)
             }).then(results => {
@@ -66,8 +66,36 @@ module.exports = {
                     return res.status(401).json({ msg: "Invalid credential" })
                 }
             })
-            .catch(err => {res.status(422).json(err);console.log(err)});
+            .catch(err => { res.status(422).json(err); console.log(err) });
 
     },
+    getMatches: function (req, res) {
+        // let currUser=[];
+        let currUsers = [];
+        let matchedUsers = [];
+        // get curr user's info (email, coices)
+        db.User.findOne({ email: req.body.email })
+            .then(dbUser => {
+                // save users choices 
+                // console.log("Controllers Inside getMatches method",dbUser);
+               
+                let currUser = [{ 
+                    id: dbUser.id,
+                    pickedShows: dbUser.shows   
+                    }
+                ];
+                return console.log("Controllers getMatches method 'currUser'", currUser);
+               
+
+            })
+            .catch(err => { res.status(422).json(err); console.log(err) });
+        // get all users (email, shows, gender prefrence, pic)
+        // save users
+        // compare 
+
+        // return array of matches
+        // return res.status(200).json({ matchedUsers:[]})
+    }
+
 }
 // module.exports = controller

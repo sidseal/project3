@@ -7,8 +7,8 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   username: { type: String, required: false },
   age: { type: Number, required: false },
-  usersGender: { type: String, required: true},
-  usergenderPreference: { type: String, required: true},
+  usersGender: { type: String, required: false},
+  usergenderPreference: { type: String, required: false},
   img: { type: String },
   shows: [{type: String}]
 });
