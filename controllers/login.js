@@ -70,7 +70,6 @@ module.exports = {
 
     },
     getMatches: function (req, res) {
-        // let currUser=[];
         let currUsers = [];
         let matchedUsers = [];
         // get curr user's info (email, coices)
@@ -78,20 +77,24 @@ module.exports = {
             .then(dbUser => {
                 // save users choices 
                 // console.log("Controllers Inside getMatches method",dbUser);
-               
-                let currUser = [{ 
-                    id: dbUser.id,
-                    pickedShows: dbUser.shows   
-                    }
-                ];
-                return console.log("Controllers getMatches method 'currUser'", currUser);
-               
 
+                let currUser = [{
+                    id: dbUser.id,
+                    pickedShows: dbUser.shows
+                }
+                ];
+                return currUser;
             })
             .catch(err => { res.status(422).json(err); console.log(err) });
-        // get all users (email, shows, gender prefrence, pic)
-        // save users
-        // compare 
+        
+            // get all users (email, shows, gender prefrence, pic)
+        db.User.findAll({id: dbUser.id, pickedShows: dbUser.shows })
+            .then(dbUser => {
+                 // save users
+                // compare 
+            })
+            .catch(err => { res.status(422).json(err); console.log(err) });
+       
 
         // return array of matches
         // return res.status(200).json({ matchedUsers:[]})
