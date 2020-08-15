@@ -17,7 +17,7 @@ function Login({ setLoggedUser, loggedUser }) {
 
   // handle Submit event
   const handleSubmit = e => {
-    e.preventDefault();
+ 
     API.loginUser({
       email: loggedUser.email,
       password: loggedUser.password
@@ -72,12 +72,14 @@ function Login({ setLoggedUser, loggedUser }) {
           Sign Up
         </strong>
       </Link>
+
+      <Link to={"/profile"} onClick={handleSubmit} >
       <button className="btn waves-effect waves-light"
         type="submit"
         name="action"
-        onClick={handleSubmit}
       >Login
       </button>
+      </Link>
     </>
   );
 }
