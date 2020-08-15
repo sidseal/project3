@@ -17,7 +17,6 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
 
   return (
 
-
     <div>
       <h3>Hey MacyMo!</h3>
       <div className="card">
