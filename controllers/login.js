@@ -69,36 +69,38 @@ module.exports = {
             .catch(err => { res.status(422).json(err); console.log(err) });
 
     },
-    getMatches: function (req, res) {
-        let currUsers = [];
-        let matchedUsers = [];
-        // get curr user's info (email, coices)
-        db.User.findOne({ email: req.body.email })
-            .then(dbUser => {
-                // save users choices 
-                // console.log("Controllers Inside getMatches method",dbUser);
-
-                let currUser = [{
-                    id: dbUser.id,
-                    pickedShows: dbUser.shows
-                }
-                ];
-                return currUser;
-            })
-            .catch(err => { res.status(422).json(err); console.log(err) });
-        
+    getMatches: async function (req, res) {
+        try {
+            // get curr user's info (email, coices)
+            let dbUser = await db.User.findOne({ email: req.body.email })
+            let currUser = {
+                id: dbUser.id,
+                pickedShows: dbUser.shows
+            };
             // get all users (email, shows, gender prefrence, pic)
-        db.User.findAll({id: dbUser.id, pickedShows: dbUser.shows })
-            .then(dbUser => {
-                 // save users
-                // compare 
-            })
-            .catch(err => { res.status(422).json(err); console.log(err) });
-       
+            let dbUsers = await db.User.find({})
+            
+            let matchedUsers = [];
 
-        // return array of matches
-        // return res.status(200).json({ matchedUsers:[]})
-    }
+            // For each candidate user
+            //   For each of the candidate's shows
+            //     If the show is included in `currUser.pickedShows`
+            //       Add the candidate to the matches
+
+            for (var i = 0; i < dbUsers.length; i++) {
+                var candidate = dbUsers[i];
+                for (var j = 0; j < candidate.shows.length; j++) {
+                    var candidateShow = candidate.shows[j];
+                    if (currUser.pickedShows.includes(candidateShow)) {
+                        matchedUsers.push(candidate);
+                        break;
+                    }
+                }
+            }
+             return res.status(200).json({matchedUsers});
+        } catch (err) { res.status(422).json(err); console.log(err) }
+
+        }
 
 }
 // module.exports = controller
