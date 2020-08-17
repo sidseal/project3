@@ -77,30 +77,27 @@ module.exports = {
                 id: dbUser.id,
                 pickedShows: dbUser.shows
             };
-            // get all users (email, shows, gender prefrence, pic)
-            let dbUsers = await db.User.find({})
-            
+            // get all users (email, shows, gender prefrence, pic), except for current user
+            let dbUsers = await db.User.find({ email: { $ne: req.body.email } })
             let matchedUsers = [];
 
-            // For each candidate user
-            //   For each of the candidate's shows
-            //     If the show is included in `currUser.pickedShows`
-            //       Add the candidate to the matches
-
+            // For each candidate user 
             for (var i = 0; i < dbUsers.length; i++) {
                 var candidate = dbUsers[i];
+                // For each of the candidate's shows
                 for (var j = 0; j < candidate.shows.length; j++) {
                     var candidateShow = candidate.shows[j];
+                    // If the show is included in `currUser.pickedShows`
                     if (currUser.pickedShows.includes(candidateShow)) {
+                        // Add the candidate to the matches
                         matchedUsers.push(candidate);
                         break;
                     }
                 }
             }
-             return res.status(200).json({matchedUsers});
+            return res.status(200).json({matchedUsers});
         } catch (err) { res.status(422).json(err); console.log(err) }
-
-        }
+    }
 
 }
 // module.exports = controller

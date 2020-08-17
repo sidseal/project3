@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import "../styles/login.css";
 
-
 function Login({ setLoggedUser, loggedUser }) {
 
   // Handles input change, Updates loggedUser state
@@ -28,13 +27,11 @@ function Login({ setLoggedUser, loggedUser }) {
     .then(response=>console.log("handleSubmit",response))
     .catch(response=>console.log("handleSubmiterr",response))
     
-
     // api call to confirmUser
     // axios.post("/api/login", { isData: true }).then(
     //   response => console.log(response)
     // )
-    // route to profile
-
+    
     console.log("Inside the login handlesubmit event");
     console.log("userId is " + loggedUser.id);
     console.log("username is " + loggedUser.email);

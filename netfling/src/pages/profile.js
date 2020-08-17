@@ -6,17 +6,18 @@ import API from '../utils/API';
 import "../styles/profile.css";
 
 function RenderProfile({ setLoggedUser, loggedUser }) {
-  console.log("Profile",{ setLoggedUser, loggedUser });
+  console.log("Profile Page",{ setLoggedUser, loggedUser });
 
   const handleSubmit = e => {
     // res is array of matches
-    API.getMatches(loggedUser.email).then(res => { 
-      console.log("profile Get Matches in event listerner",res)
+    API.getMatches(loggedUser.email)
+      .then(res => { 
+      console.log("RenderProfile page Get Matches event listerner res:",res)
      })
+     .catch(err => console.log(err));
   };
 
   return (
-
     <div>
       <h3>Hey MacyMo!</h3>
       <div className="card">
@@ -59,7 +60,6 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
         onClick={handleSubmit}
       >Get Matches</FormBtn>
     </div>
-
 
   );
 }
