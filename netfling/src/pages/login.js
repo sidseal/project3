@@ -5,15 +5,11 @@ import "../styles/login.css";
 
 function Login({ setLoggedUser, loggedUser }) {
 
-  const [errMessage, setErrMessage] = useState(
-      {
-        errMessageText: ""
-     }
-  );
-
   // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
     const { name, value } = e.target;
+
+    // setLoggedUser loggedUser to add id property
     setLoggedUser({ ...loggedUser, [name]: value })
   };
 
@@ -28,10 +24,9 @@ function Login({ setLoggedUser, loggedUser }) {
       // password: req.body.password,
     })
     .then(response=>console.log("handleSubmit",response))
-    .catch(err=>{
-         setErrMessage({errMessage:"Email or password invalid"}) 
-    })
+    .catch(response=>console.log("handleSubmiterr",response))
     
+
     // api call to confirmUser
     // axios.post("/api/login", { isData: true }).then(
     //   response => console.log(response)
@@ -75,14 +70,13 @@ function Login({ setLoggedUser, loggedUser }) {
         </strong>
       </Link>
 
-      {/* <Link to={"/profile"} onClick={handleSubmit} > */}
+      <Link to={"/profile"} onClick={handleSubmit} >
       <button className="btn waves-effect waves-light"
         type="submit"
         name="action"
-        onClick={handleSubmit}
       >Login
       </button>
-      {/* </Link> */}
+      </Link>
     </>
   );
 }
