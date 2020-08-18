@@ -9,14 +9,12 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
   console.log("Profile",{ setLoggedUser, loggedUser });
 
   const handleSubmit = e => {
-    // res is array of matches
-    API.getMatches(loggedUser.email).then(res => { 
-      console.log("profile Get Matches in event listerner",res)
+    API.getMatches(loggedUser.email).then(matches => { 
+      console.log("profile Get Matches in event listerner",matches)
      })
   };
 
   return (
-
     <div>
       <h3>Hey MacyMo!</h3>
       <div className="card">
@@ -55,11 +53,12 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           </div>
         </div>
       </div>
+
       <FormBtn
         onClick={handleSubmit}
       >Get Matches</FormBtn>
-    </div>
 
+    </div>
 
   );
 }
