@@ -1,7 +1,6 @@
 const db = require("../models");
 const bcrypt = require('bcrypt');
 
-
 // Defining methods for thb.UsersController
 module.exports = {
     findAll: function (req, res) {
@@ -78,15 +77,13 @@ module.exports = {
                 pickedShows: dbUser.shows
             };
             // get all users (email, shows, gender prefrence, pic)
-            let dbUsers = await db.User.find({})
-            
+            let dbUsers = await db.User.find({ email: { $ne: req.body.email } }) 
             let matchedUsers = [];
 
             // For each candidate user
             //   For each of the candidate's shows
             //     If the show is included in `currUser.pickedShows`
             //       Add the candidate to the matches
-
             for (var i = 0; i < dbUsers.length; i++) {
                 var candidate = dbUsers[i];
                 for (var j = 0; j < candidate.shows.length; j++) {

@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import "../styles/login.css";
 
-
 function Login({ setLoggedUser, loggedUser }) {
 
   // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
     const { name, value } = e.target;
-    //Make api call to find loggedUser id
 
     // setLoggedUser loggedUser to add id property
     setLoggedUser({ ...loggedUser, [name]: value })
@@ -33,7 +31,6 @@ function Login({ setLoggedUser, loggedUser }) {
     // axios.post("/api/login", { isData: true }).then(
     //   response => console.log(response)
     // )
-    // route to profile
 
     console.log("Inside the login handlesubmit event");
     console.log("userId is " + loggedUser.id);

@@ -20,12 +20,13 @@ export default {
     },
     loginUser: function({email,password}){
       return axios.post("/api/users/login", { email,password}).then(
+          // response => response.data
           response => console.log(response)
         )
     },
     getMatches: function(email){
       return axios.post("/api/users/matches",{email}).then(
-          response => console.log(response)
+          response => response.data.matchedUsers
         )
     }
   };

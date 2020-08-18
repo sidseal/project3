@@ -7,10 +7,7 @@ function SignUp({ setLoggedUser, loggedUser }) {
 
   // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
-    // Generate random id #
-
     const { name, value } = e.target;
-    // Add _id protery to loggeduser state
     setLoggedUser({ ...loggedUser, [name]: value });
   };
 
@@ -24,12 +21,6 @@ function SignUp({ setLoggedUser, loggedUser }) {
     })
       .then(response => console.log("handleSubmit", response))
       .catch(response => console.log("handleSubmiterr", response))
-
-
-    // route to createProfile
-
-
-
 
     console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);
@@ -65,7 +56,6 @@ function SignUp({ setLoggedUser, loggedUser }) {
       </div>
 
       <Link to={"/login"}>
-
         <strong>
           Login
         </strong>

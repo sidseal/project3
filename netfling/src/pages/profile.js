@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FormBtn } from '../components/Create';
 import shows from "../../src/shows.json";
 import ShowChoices from "../components/Choices";
+import Card from 'react-bootstrap/Card';
 import API from '../utils/API';
 import "../styles/profile.css";
 
 function RenderProfile({ setLoggedUser, loggedUser }) {
-  console.log("Profile",{ setLoggedUser, loggedUser });
+  console.log("Profile", { setLoggedUser, loggedUser });
+
+  const [matchedUsers, setMatches] = useState(
+    {
+      MatchedResults: []
+    }
+  );
 
   const handleSubmit = e => {
-    // res is array of matches
-    API.getMatches(loggedUser.email).then(res => { 
-      console.log("profile Get Matches in event listerner",res)
-     })
+    API.getMatches(loggedUser.email).then(matchesRes => {
+      setMatches({ MatchedResults: matchesRes });
+    })
+
   };
 
   return (
-
     <div>
+      {/* Current User Card Info */}
       <h3>Hey MacyMo!</h3>
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
@@ -55,11 +62,26 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           </div>
         </div>
       </div>
+
       <FormBtn
         onClick={handleSubmit}
       >Get Matches</FormBtn>
-    </div>
 
+      {/* Mapped Matched Users Cards genertaed */}
+      {matchedUsers.MatchedResults.map(match =>
+        <Card
+          style={{ width: '18rem' }}
+          key={match.id}
+        >
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>{match.username}</Card.Title>
+            <Card.Text>{match.age} </Card.Text>
+            <Card.Text>{match.email} </Card.Text>
+          </Card.Body>
+        </Card>
+      )}
+    </div>
 
   );
 }
