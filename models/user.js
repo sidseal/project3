@@ -9,7 +9,7 @@ const userSchema = new Schema({
   age: { type: Number, required: false },
   usersGender: { type: String, required: false},
   usergenderPreference: { type: String, required: false},
-  img: { type: String },
+  img: { data: Buffer, type: String, required: true },
   shows: [{type: String}]
 });
 

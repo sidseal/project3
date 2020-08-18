@@ -71,7 +71,7 @@ module.exports = {
     },
     getMatches: async function (req, res) {
         try {
-            // get curr user's info (email, coices)
+            // get curr user's info (email, choices)
             let dbUser = await db.User.findOne({ email: req.body.email })
             let currUser = {
                 id: dbUser.id,

@@ -7,6 +7,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Link } from "react-router-dom";
 // import Axios from "axios";
 import "../styles/createProfile.css";
+// import Sketch from "react-p5"
+// import RenderProfile from "./profile";
 // import { DropdownList, Dropdown} from "../components/Create";
 
 let UserGenderPrefArr = [
@@ -35,14 +37,39 @@ const UsersGender = [
   }
 ]
 
+  
 function CreateProfile({ setLoggedUser, loggedUser }) {
 
-  console.log({ setLoggedUser, loggedUser })
+  console.log({ setLoggedUser, loggedUser });
 
   // Filtered Arrays
   const Series = shows.filter(series => series.type === "Series");
   const Movies = shows.filter(movie => movie.type === "Movie");
+  
+  React.useState ({
+    img: ""
+  });
+  const fileSelectedHandler = (event) => {
+    console.log(event.target.files[0]);
+    React.useState = ({
+      img:event.target.files[0]
+    })
+  };
 
+   const fileUploadHandler = () => {
+    const fd = new FormData();
+    fd.append("image", React.useState.img, React.useState.img.name);
+    
+    // axios.post("", fd, {
+    //   onUploadProgress: ProgressEvent => {
+    //     console.log("UploadProgress: " + Math.round(progressEvent.loaded / progressEvent.total * 100) + "%")
+    //   }
+    // })
+    // .then(res => {
+    //   console.log(res);
+    // })
+  };
+  
   return (
     <div>
       <User placeholder="create username here" />
@@ -102,7 +129,16 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img>
+          {/* <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img> */}
+          <input type="file" onChange={fileSelectedHandler}></input>
+          {/* <input style={{display: "none"}} type="file" onChange={fileSelectedHandler} ref={fileInput => this.fileInput = file.Input}/>
+          <button onClick={() => this.fileInput.click()}>Pick your Profile Pic!</button>*/}
+          <button className="btn waves-effect waves-light"
+          id= "btn"
+          type="submit"
+          name="action" 
+          onClick={fileUploadHandler}>Upload My Picture
+          </button> 
         </div>
         <div className="card-content">
           <p> <ShowChoices shows={shows.filter(show =>

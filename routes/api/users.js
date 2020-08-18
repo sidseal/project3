@@ -1,6 +1,6 @@
-const express= require ("express");
+const express = require ("express");
 const router = require("express").Router();
-const controllers= require("../../controllers/login");
+const controllers = require("../../controllers/login");
 
 // Matches with "/api/users/login"
 router
@@ -31,4 +31,4 @@ module.exports = router;
 
 
 
-  // module.exports= router;
+  // module.exports = router;

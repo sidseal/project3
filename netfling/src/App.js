@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import SignUp from "./pages/signUp";
 import CreateProfile from "./pages/createProfile";
 import RenderProfile from "./pages/profile";
+// import ImageUpload from "./pages/createProfile";
 // import { FormBtn } from "./components/Create";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,6 +37,7 @@ function App() {
 
           <Route exact path="/create">
             <CreateProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
+            {/* <ImageUpload /> */}
           </Route>
 
           <Route exact path="/profile">

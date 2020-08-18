@@ -12,3 +12,8 @@
 .dropdown-trigger {
     background-color: rgb(199, 47, 47);
 }
+
+#btn {
+    background-color: rgb(199, 47, 47);
+    color: white;
+}
