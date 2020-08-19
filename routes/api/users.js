@@ -24,11 +24,6 @@ router
   .put(controllers.update)
   .delete(controllers.remove)
 
- router
-  .route("/setId") 
-  .get(controllers.renderUsersID)
-
-
   router
   .route("/matches")
   .post(controllers.getMatches)

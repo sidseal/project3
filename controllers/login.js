@@ -97,17 +97,6 @@ module.exports = {
             return res.status(200).json({ matchedUsers });
         } catch (err) { res.status(422).json(err); console.log(err) }
 
-    },
-    renderUsersID: function (req, res) {
-        let userId = dbUser._id
-        console.log(userId,"outside")
-        db.User.findOne({ email: req.body.email })
-            .then(dbUser => {
-                console.log("renderuserbyIDmethod",dbUser)
-                console.log(userId, 'Inside')
-            })
-            .catch(err => { res.status(422).json(err); console.log(err) });
-
     }
 }
 
