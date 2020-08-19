@@ -1,26 +1,39 @@
-import React from "react";
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import "../styles/signUp.css";
 
 function SignUp({ setLoggedUser, loggedUser }) {
-
+  const [password, setPassword] = useState(
+    {
+      password: ""
+    }
+  );
   // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
     const { name, value } = e.target;
     setLoggedUser({ ...loggedUser, [name]: value });
+    setPassword({ ...password, [name]: value })
   };
+
+
+
 
   // handle Submit event
   const handleSubmit = e => {
     // api call to AddUser
     API.saveUser({
-      //_id: loggedUser.id, 
+      //id: loggedUser.id, 
       email: loggedUser.email,
-      password: loggedUser.password,
+      password: password.password
     })
       .then(response => console.log("handleSubmit", response))
       .catch(response => console.log("handleSubmiterr", response))
+    API.renderUserById({
+      email: loggedUser.email
+    })
+      .then(response => console.log("handleSubmitrenderByID", response))
+      .catch(response => console.log("handleSubmiterrrenderByID", response))
 
     console.log("Inside signUp handlesubmit event ");
     console.log("userId is " + loggedUser.id);

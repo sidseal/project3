@@ -28,5 +28,10 @@ export default {
       return axios.post("/api/users/matches",{email}).then(
           response => response.data.matchedUsers
         )
+    },
+    renderUserById: function (email){
+      return axios.get("api/users/setId", {email}).then(
+        response => (console.log("insideUTILS",response))
+      )
     }
   };

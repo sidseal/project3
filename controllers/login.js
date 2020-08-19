@@ -77,7 +77,7 @@ module.exports = {
                 pickedShows: dbUser.shows
             };
             // get all users (email, shows, gender prefrence, pic)
-            let dbUsers = await db.User.find({ email: { $ne: req.body.email } }) 
+            let dbUsers = await db.User.find({ email: { $ne: req.body.email } })
             let matchedUsers = [];
 
             // For each candidate user
@@ -94,10 +94,22 @@ module.exports = {
                     }
                 }
             }
-             return res.status(200).json({matchedUsers});
+            return res.status(200).json({ matchedUsers });
         } catch (err) { res.status(422).json(err); console.log(err) }
 
-        }
+    },
+    renderUsersID: function (req, res) {
+        let userId = dbUser._id
+        console.log(userId,"outside")
+        db.User.findOne({ email: req.body.email })
+            .then(dbUser => {
+                console.log("renderuserbyIDmethod",dbUser)
+                console.log(userId, 'Inside')
+            })
+            .catch(err => { res.status(422).json(err); console.log(err) });
 
+    }
 }
+
+
 // module.exports = controller

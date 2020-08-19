@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import API from '../utils/API';
 import "../styles/profile.css";
 
+
 function RenderProfile({ setLoggedUser, loggedUser }) {
   console.log("Profile", { setLoggedUser, loggedUser });
 
@@ -17,6 +18,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
 
   const handleSubmit = e => {
     API.getMatches(loggedUser.email).then(matchesRes => {
+      console.log(matchesRes)
       setMatches({ MatchedResults: matchesRes });
     })
 
