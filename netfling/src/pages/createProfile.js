@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { User } from "../components/Create";
 import ShowChoices from "../components/Choices"
 import shows from "../../src/shows.json";
@@ -36,7 +36,7 @@ const UsersGender = [
 ]
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
-
+// const testState = props.location.state.id;
   console.log({ setLoggedUser, loggedUser })
 
   // Filtered Arrays

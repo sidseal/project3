@@ -38,13 +38,14 @@ function SignUp({ setLoggedUser, loggedUser }) {
         // setLoggedUser(...loggedUser, { id: response.data._id })
         // window.location.redirect(`/create?id=${response.data._id}`)
         setByeBye({render:true, id:servedId})
+        setLoggedUser({ ...loggedUser, _id:servedId});
       })
       .catch(response => console.log("handleSubmiterr", response))
 
-    console.log("Inside signUp handlesubmit event ");
-    console.log("userId is " + loggedUser.id);
-    console.log("username is " + loggedUser.email);
-    console.log("password is " + loggedUser.password);
+    // console.log("Inside signUp handlesubmit event ");
+    // console.log("userId is " + loggedUser.id);
+    // console.log("username is " + loggedUser.email);
+    // console.log("password is " + loggedUser.password);
 
   };
 
@@ -54,6 +55,10 @@ function SignUp({ setLoggedUser, loggedUser }) {
           to={{
             pathname: "/create",
             search: `?id=${byeBye.id}`,
+          //   state: {
+          //     email:this.state.email,
+          //     id:this.state.id
+          // }
             //state: { referrer: currentLocation }
           }}
         />): ( <>
