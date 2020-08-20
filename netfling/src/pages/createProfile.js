@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React from "react";
 import { User } from "../components/Create";
 import ShowChoices from "../components/Choices"
 import shows from "../../src/shows.json";
