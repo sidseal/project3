@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Redirect }  from "react-router-dom";
 import API from "../utils/API";
 import "../styles/login.css";
 
@@ -27,59 +27,65 @@ function Login({ setLoggedUser, loggedUser }) {
       // email: req.body.email,
       // password: req.body.password,
     })
-    .then(response=>
-    {
-      console.log("handleSubmit", response)
-      const servedId= response.data._id
-      setLoggedUser({ ...loggedUser, _id:servedId});
-    })
-    .catch(response=>console.log("handleSubmiterr",response))
+      .then(response => {
+        console.log("handleSubmit", response)
+        const servedId = response.data._id
+        setLoggedUser({ ...loggedUser,render: true, _id: servedId });
+      })
+      .catch(response => console.log("handleSubmiterr", response))
 
   };
 
   return (
     <>
-      <div className="row">
-        <div className="input-field col s12">
-          <input
-            // onChange={handleInputChange}
-            onChange={e => setLoggedUser({...loggedUser,email: e.target.value})}
-            id="email"
-            type="text"
-            className="validate"
-            name="email"
-          />
-          <label>Email</label>
+      {loggedUser.render ? (<Redirect
+        to={{
+          pathname: "/profile",
+          search: `?id=${loggedUser._id}`,
+          //state: { referrer: currentLocation }
+        }}
+      />) : (<>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              // onChange={handleInputChange}
+              onChange={e => setLoggedUser({ ...loggedUser, email: e.target.value })}
+              id="email"
+              type="text"
+              className="validate"
+              name="email"
+            />
+            <label>Email</label>
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="input-field col s12">
-          <input
-            // onChange={handleInputChange}
-            onChange={e => setPassword({...password,password: e.target.value})}
-            id="password"
-            type="password"
-            className="validate"
-            name="password"
-          />
-          <label>Password</label>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              // onChange={handleInputChange}
+              onChange={e => setPassword({ ...password, password: e.target.value })}
+              id="password"
+              type="password"
+              className="validate"
+              name="password"
+            />
+            <label>Password</label>
+          </div>
         </div>
-      </div>
-      <Link to={"/signup"} >
-        <strong>
-          Sign Up
+        <Link to={"/signup"} >
+          <strong>
+            Sign Up
         </strong>
-      </Link>
+        </Link>
 
-      <Link to={"/profile"} onClick={handleSubmit} >
-      <button className="btn waves-effect waves-light"
-        type="submit"
-        name="action"
-      >Login
+        <div onClick={handleSubmit} >
+          <button className="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >Login
       </button>
-      </Link>
-    </>
-  );
+        </div>
+      </>)}
+    </>)
 }
 
 export default Login;
