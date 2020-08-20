@@ -2,14 +2,11 @@ const express= require ("express");
 const router = require("express").Router();
 const controllers= require("../../controllers/login");
 
-
+// Matches with "/api/login"
 router
   .route("/login")
-  // function (req,res,next){
-  //   if currUser
-  // })
-// //   .get(controllers.findAll)
-  .post(controllers.loginUser);
+ //.get(controllers.findAll)
+  .post(controllers.loginUser)
 
 // Matches with "/api/posts"
 router
@@ -24,12 +21,9 @@ router
   .put(controllers.update)
   .delete(controllers.remove)
 
-  router
+router
   .route("/matches")
   .post(controllers.getMatches)
+
 module.exports = router;
 
-
-
-
-  // module.exports= router;

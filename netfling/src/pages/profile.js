@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FormBtn } from '../components/Create';
 import shows from "../../src/shows.json";
 import ShowChoices from "../components/Choices";

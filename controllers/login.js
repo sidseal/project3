@@ -57,13 +57,12 @@ module.exports = {
         const myPlaintextPassword = req.body.password
         db.User.findOne({ email: req.body.email })
             .then(dbUser => {
-                return bcrypt.compare(myPlaintextPassword, dbUser.password)
-            }).then(results => {
-                if (results) {
-                    return res.status(200).json({ msg: "Login success" })
-                } else {
-                    return res.status(401).json({ msg: "Invalid credential" })
-                }
+               let results= bcrypt.compareSync(myPlaintextPassword, dbUser.password)
+               if (results) {
+                return res.status(200).json(dbUser)
+            } else { 
+                return res.status(401).json({ msg: "Invalid credential"})
+            }
             })
             .catch(err => { res.status(422).json(err); console.log(err) });
 
