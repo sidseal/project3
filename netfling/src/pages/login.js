@@ -1,24 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import "../styles/login.css";
 
 function Login({ setLoggedUser, loggedUser }) {
 
+  const [password, setPassword] = useState(
+    {
+      password: ""
+    }
+  );
   // Handles input change, Updates loggedUser state
   function handleInputChange(e) {
     const { name, value } = e.target;
-
-    // setLoggedUser loggedUser to add id property
-    setLoggedUser({ ...loggedUser, [name]: value })
+    setLoggedUser({ ...loggedUser, [name]: value });
+    setPassword({...password, [name]: value})
+  
   };
-
   // handle Submit event
   const handleSubmit = e => {
  
     API.loginUser({
       email: loggedUser.email,
-      password: loggedUser.password
+      password: password.password
       
       // email: req.body.email,
       // password: req.body.password,

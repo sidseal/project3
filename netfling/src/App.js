@@ -14,11 +14,12 @@ function App() {
   // Current User
   const [loggedUser, setLoggedUser] = useState(
     {
-      id: "",
-      email: "",
-      password: "",
+      _id: "",
+      email: ""
     }
   );
+
+
 
   return (
     <Router>
