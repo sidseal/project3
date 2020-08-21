@@ -41,7 +41,7 @@ module.exports = {
         });
     },
     update: function (req, res) {
-        db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+        db.User.findOneAndUpdate({ _id: req.body.id }, req.body.choices)
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
     },

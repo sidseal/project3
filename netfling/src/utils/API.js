@@ -28,5 +28,8 @@ export default {
       return axios.post("/api/users/matches",{email}).then(
           response => response.data.matchedUsers
         )
+    },
+    createProfile: function(updateUser){
+      return axios.put("/api/users/" + updateUser.id,updateUser)
     }
   };
