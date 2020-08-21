@@ -84,7 +84,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
         </Card>
       )}
 
-      <form action="./login" method="get">
+      <form action="/login" method="get">
         <button class="btn btn-submit" type="submit" name="logout-submit">Logout</button>
       </form>
 
