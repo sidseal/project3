@@ -36,7 +36,7 @@ const UsersGender = [
 ]
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
-// const testState = props.location.state.id;
+  // const testState = props.location.state.id;
   console.log({ setLoggedUser, loggedUser })
 
   // Filtered Arrays
@@ -120,6 +120,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           Create My Profile!</button>
       </Link>
 
+      <form action="/login" method="get">
+        <button class="btn btn-submit" type="submit" name="logout-submit">Logout</button>
+      </form>
 
     </div>
 
