@@ -15,6 +15,12 @@ const userSchema = new Schema({
     validate: [({ length }) => length >= 6, "Password should be longer."] 
   },
   username: { type: String, required: false },
+  contactEmail: { 
+    type: String, 
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+   },
   age: { type: Number, required: false },
   usersGender: { type: String, required: false},
   usergenderPreference: { type: String, required: false},

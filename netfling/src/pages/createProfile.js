@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { User } from "../components/Create";
 import ShowChoices from "../components/Choices"
 import shows from "../../src/shows.json";
@@ -37,29 +37,58 @@ const UsersGender = [
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
   // Choices State
+  const [choices, setChoices] = useState(
+    {
+      username: "",
+      age: "",
+      contactEmail: "",
+      usersGender: "",
+      usergenderPreference: "",
+      img: "",
+      shows: []
+    }
+  );
 
   // Filtered Arrays
   const Series = shows.filter(series => series.type === "Series");
   const Movies = shows.filter(movie => movie.type === "Movie");
 
+  // Ues Effect if User, Pull current data
+
   // Handel Input changes 
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setChoices({ ...choices, [name]: value });
+  };
 
   return (
     <div>
       <form>
         {/* UserName Input */}
-        <User placeholder="create username here" />
-        
+        <User
+          placeholder="create username here"
+          name="username"
+          onChange={handleInputChange}
+        />
+
         {/* Age, int */}
-        <User placeholder="Insert Age here" />
-        
+        <User
+          placeholder="Insert Age here"
+          name="age"
+          onChange={handleInputChange}
+        />
+
         {/* Contact Email, email format */}
-         <User placeholder="Add Contact email here" />
-        
+        <User
+          placeholder="Add Contact email here"
+          name="contactEmail"
+          onChange={handleInputChange}
+        />
+
         {/* Upload Pic */}
 
         <DropdownButton id="dropdown-basic-button" variant="danger" title="Your Gender">
-          {UsersGender.mp(gender =>
+          {UsersGender.map(gender =>
             <Dropdown.Item
               as="button"
               key={gender.id}
