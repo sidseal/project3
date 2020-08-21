@@ -120,6 +120,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           Create My Profile!</button>
       </Link>
 
+      <form action="./login" method="get">
+        <button class="btn btn-submit" type="submit" name="logout-submit">Logout</button>
+      </form>
 
     </div>
 
