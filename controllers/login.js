@@ -3,12 +3,14 @@ const bcrypt = require('bcrypt');
 
 // Defining methods for thb.UsersController
 module.exports = {
+    
     findAll: function (req, res) {
         db.User.find(req.query)
             .sort({ date: -1 })
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
     },
+
     findById: function (req, res) {
         const myPlaintextPassword = req.body.password
         db.User.findById(req.params.id)
@@ -22,8 +24,8 @@ module.exports = {
                 }
             })
             .catch(err => res.status(422).json(err));
-
     },
+
     create: function (req, res) {
         console.log("creating", req.body)
         const myPlaintextPassword = req.body.password
@@ -37,14 +39,16 @@ module.exports = {
                 .catch(err => {
                     console.log("createErr", err)
                     res.status(422).json(err);
-                })
+                });
         });
     },
+
     update: function (req, res) {
         db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
     },
+
     remove: function (req, res) {
         db.User.findById({ _id: req.params.id })
             .then(dbUser => dbUser
@@ -66,8 +70,8 @@ module.exports = {
                 }
             })
             .catch(err => { res.status(422).json(err); console.log(err) });
-
     },
+
     getMatches: async function (req, res) {
         try {
             // get curr user's info (email, coices)
@@ -95,9 +99,6 @@ module.exports = {
                 }
             }
              return res.status(200).json({matchedUsers});
-        } catch (err) { res.status(422).json(err); console.log(err) }
-
-        }
-
-}
-// module.exports = controller
+        } catch (err) { res.status(422).json(err); console.log(err) };
+    }
+};

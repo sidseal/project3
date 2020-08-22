@@ -5,9 +5,9 @@ import shows from "../../src/shows.json";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Link } from "react-router-dom";
-// import Axios from "axios";
+import UploadImage from "../components/UploadImage";
+// import Images from "../components/Images";
 import "../styles/createProfile.css";
-// import { DropdownList, Dropdown} from "../components/Create";
 
 let UserGenderPrefArr = [
   {
@@ -37,12 +37,11 @@ const UsersGender = [
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
 
-  console.log({ setLoggedUser, loggedUser })
-
   // Filtered Arrays
   const Series = shows.filter(series => series.type === "Series");
   const Movies = shows.filter(movie => movie.type === "Movie");
-
+  
+    
   return (
     <div>
       <User placeholder="create username here" />
@@ -52,8 +51,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           <Dropdown.Item
             as="button"
             key={gender.id}
-            name={gender.name}
-          >
+            name={gender.name} >
             {gender.name}
           </Dropdown.Item>
         )}
@@ -65,11 +63,10 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           <Dropdown.Item
             as="button"
             key={preference.id}
-            name={preference.name}
-          >
+            name={preference.name} >
             {preference.name}
           </Dropdown.Item>
-        )}
+        )};
       </DropdownButton>
 
       <p>Choose your top 4 and get matched</p>
@@ -80,8 +77,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           <Dropdown.Item
             as="button"
             key={series.id}
-            name={series.name}
-          >
+            name={series.name} >
             {series.name}
           </Dropdown.Item>
         )}
@@ -93,8 +89,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           <Dropdown.Item
             as="button"
             key={movie.id}
-            name={movie.name}
-          >
+            name={movie.name} >
             {movie.name}
           </Dropdown.Item>
         )}
@@ -102,13 +97,11 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img>
+        <UploadImage/>
+        {/* <Images /> */}
         </div>
         <div className="card-content">
-          <p> <ShowChoices shows={shows.filter(show =>
-            show.id === 2
-          )}
-          />
+          <p> <ShowChoices shows={shows.filter(show => show.id === 2)}/>
           </p>
         </div>
       </div>
@@ -116,36 +109,11 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
         <button
           className="btn waves-effect waves-light"
           type="submit"
-          name="action">
+          name="action" >
           Create My Profile!</button>
       </Link>
-
-
     </div>
-
-    // <Dropdown onClick = {(event)=> this.showGp(event)}>Gender/Preferences</Dropdown>
-    //   <ShowChoices shows={shows.filter(show =>
-    //     show.type === "series"
-    //   )} 
-    //    />
-    // <div className="card">
-    //   <div className="card-image waves-effect waves-block waves-light">
-    //     <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt ="profilepic" ></img>
-    //   </div>
-    // <div className="card-content">
-    // <p> <ShowChoices shows={shows.filter(show =>
-    //     show.id === 2
-    //   )} 
-    //   />
-    // </p>
-    // </div>
-    // </div>
-    //   {/* <Dropdown name="">series</Dropdown>
-    //   <Dropdown name="">Movies</Dropdown> */}
-    //   <Link to={"/profile"}>Create My Profile!
-    //   {/* <FormBtn onClick={() => console.log(loggedUser.username) || window.location.assign("/profile")}>Create My Profile! </FormBtn> */}
-    //   </Link>
-    // </div>  
   );
-}
+};
+
 export default CreateProfile;

@@ -18,7 +18,6 @@ const userSchema = new Schema({
   age: { type: Number, required: false },
   usersGender: { type: String, required: false},
   usergenderPreference: { type: String, required: false},
-  img: { type: String },
   shows: [{type: String}]
 });
 

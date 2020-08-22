@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FormBtn } from '../components/Create';
 import shows from "../../src/shows.json";
 import ShowChoices from "../components/Choices";
@@ -7,7 +7,6 @@ import API from '../utils/API';
 import "../styles/profile.css";
 
 function RenderProfile({ setLoggedUser, loggedUser }) {
-  console.log("Profile", { setLoggedUser, loggedUser });
 
   const [matchedUsers, setMatches] = useState(
     {
@@ -19,7 +18,6 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
     API.getMatches(loggedUser.email).then(matchesRes => {
       setMatches({ MatchedResults: matchesRes });
     })
-
   };
 
   return (
@@ -31,10 +29,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img>
         </div>
         <div class="card-content">
-          <p> <ShowChoices shows={shows.filter(show =>
-            show.id === 2
-          )}
-          />
+          <p> <ShowChoices shows={shows.filter(show => show.id === 2)} />
           </p>
         </div>
         <div className="card">
@@ -43,10 +38,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
             <img className="activator" src="https://randomuser.me/api/portraits/thumb/men/6.jpg" id="thumbnail" alt="profilepic" ></img>
           </div>
           <div class="card-content">
-            <p> <ShowChoices shows={shows.filter(show =>
-              show.id === 2
-            )}
-            />
+            <p> <ShowChoices shows={shows.filter(show => show.id === 2)} />
             </p>
           </div>
           <div className="card-image waves-effect waves-block waves-light">
@@ -54,10 +46,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
             <img className="activator" src="https://randomuser.me/api/portraits/thumb/men/58.jpg" id="thumbnail" alt="profilepic" ></img>
           </div>
           <div class="card-content">
-            <p> <ShowChoices shows={shows.filter(show =>
-              show.id === 2
-            )}
-            />
+            <p> <ShowChoices shows={shows.filter(show => show.id === 2)} />
             </p>
           </div>
         </div>
@@ -71,8 +60,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
       {matchedUsers.MatchedResults.map(match =>
         <Card
           style={{ width: '18rem' }}
-          key={match.id}
-        >
+          key={match.id} >
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>{match.username}</Card.Title>
@@ -82,8 +70,8 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
         </Card>
       )}
     </div>
-
   );
+  
 }
 
 export default RenderProfile;
