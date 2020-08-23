@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormBtn } from '../components/Create';
 import shows from "../../src/shows.json";
 import ShowChoices from "../components/Choices";
@@ -24,13 +24,23 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
 
   };
 
+  useEffect(() => {
+    API.getUser(loggedUser._id).then(
+      response => console.log(response)
+    )
+    return() => {
+      console.log(loggedUser._id)
+    }
+  });
+    
+
   return (
     <div>
       {/* Current User Card Info */}
-      <h3>Hey MacyMo!</h3>
+      <h3>Hey {loggedUser.id} </h3>
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img>
+          {/* <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img> */}
         </div>
         <div class="card-content">
           <p> <ShowChoices shows={shows.filter(show =>
@@ -41,8 +51,8 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
         </div>
         <div className="card">
           <div className="card-image waves-effect waves-block waves-light">
-            <p>GoodLookin_89</p>
-            <img className="activator" src="https://randomuser.me/api/portraits/thumb/men/6.jpg" id="thumbnail" alt="profilepic" ></img>
+            <p>{setMatches.matchesRes}</p>
+            {/* <img className="activator" src="https://randomuser.me/api/portraits/thumb/men/6.jpg" id="thumbnail" alt="profilepic" ></img> */}
           </div>
           <div class="card-content">
             <p> <ShowChoices shows={shows.filter(show =>
@@ -53,7 +63,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           </div>
           <div className="card-image waves-effect waves-block waves-light">
             <p>HotScruffStuff</p>
-            <img className="activator" src="https://randomuser.me/api/portraits/thumb/men/58.jpg" id="thumbnail" alt="profilepic" ></img>
+            {/* <img className="activator" src="https://randomuser.me/api/portraits/thumb/men/58.jpg" id="thumbnail" alt="profilepic" ></img> */}
           </div>
           <div class="card-content">
             <p> <ShowChoices shows={shows.filter(show =>
@@ -66,7 +76,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
       </div>
 
       <FormBtn
-        onClick={handleSubmit}
+        // onClick={handleSubmit}
       >Get Matches</FormBtn>
 
       {/* Mapped Matched Users Cards genertaed */}
