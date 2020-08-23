@@ -16,6 +16,18 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
     }
   );
 
+  const [userProfile, setUserProfile] = useState(
+    {
+      username: "",
+      age: "",
+      usersGender: "",
+      usergenderPreference: "",
+      img: "",
+      shows: []
+    }
+  );
+
+
   const handleSubmit = e => {
     API.getMatches(loggedUser.email).then(matchesRes => {
       console.log(matchesRes)
@@ -26,18 +38,30 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
 
   useEffect(() => {
     API.getUser(loggedUser._id).then(
-      response => console.log(response)
+      response => {
+        // console.log(response);
+        setUserProfile({
+          username: response.data.userName,
+          age: response.data.age,
+          usersGender: response.data.usersGender,
+          usergenderPreference: response.data.usersgenderPreference,
+          img: "",
+          shows: [response.data.shows]
+        });
+        console.log(userProfile);
+      },
     )
-    return() => {
-      console.log(loggedUser._id)
-    }
-  });
-    
+    // return (loggedUser,[]) => {
+    //   console.log(loggedUser._id)
+    // }
+  }, []);
+
 
   return (
+
     <div>
       {/* Current User Card Info */}
-      <h3>Hey {loggedUser.id} </h3>
+      <h3>Hey {loggedUser.username} </h3>
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
           {/* <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img> */}
@@ -76,7 +100,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
       </div>
 
       <FormBtn
-        // onClick={handleSubmit}
+      // onClick={handleSubmit}
       >Get Matches</FormBtn>
 
       {/* Mapped Matched Users Cards genertaed */}

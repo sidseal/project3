@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const multer = require('multer');
 const mongoose = require("mongoose");
-const env = require("dotenv").config()
+require("dotenv").config()
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

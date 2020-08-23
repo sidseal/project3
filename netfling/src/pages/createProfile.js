@@ -4,7 +4,7 @@ import shows from "../../src/shows.json";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import API from '../utils/API';
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 // import Axios from "axios";
 import "../styles/createProfile.css";
 // import { DropdownList, Dropdown} from "../components/Create";
@@ -88,6 +88,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
   return (
     <>
+  
       <form>
         {/* UserName Input */}
         <User
@@ -194,6 +195,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       <form action="/login" method="get">
         <button className="btn btn-submit" type="submit" name="logout-submit">Logout</button>
       </form>
+     
+
+
 
     </>
 
