@@ -3,7 +3,8 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const multer = require('multer');
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const env = require("dotenv").config()
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +18,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("netfling/build"));
 
 }
+
+// process.env.MONGODB_URI
+
+console.log(process.env)
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
+
 
 
 // Define API routes here

@@ -36,7 +36,9 @@ const UsersGender = [
 ]
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
+
   let resultShowArr=[];
+
   // Choices State
   const [choices, setChoices] = useState(
     {
@@ -60,6 +62,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
     setChoices({ ...choices, [name]: value });
   };
 
+
   const handleSelectShows = (e) => {
     let newShow= e;
     if(resultShowArr.length>=3){
@@ -82,7 +85,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       .catch(response => console.log("handleSubmiterr", response))
 
   };
- 
+
   return (
     <>
       <form>
@@ -92,6 +95,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           name="username"
           onChange={handleInputChange}
         />
+
 
         {/* Age, int */}
         <User
@@ -165,6 +169,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       
         
       </form>
+
 
       {/*Card Infor  */}
       <div className="card">
