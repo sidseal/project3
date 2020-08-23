@@ -23,10 +23,6 @@ router
 //Matches with "/api/users/matches"
 router
   .route("/matches")
-  .post(controllers.getMatches)
-
-//Matches with "/api/users/image"
-router
-  .route("/image")
+  .post(controllers.getMatches)  
   
 module.exports = router;

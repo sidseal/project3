@@ -1,17 +1,20 @@
+const { cloudinary } = require("./utils/cloudinary");
+
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+var cors = require('cors');
+
 const mongoose = require("mongoose");
-// const { cloudinary } = require("./utils/cloudinary");
-// const env = require ("dotenv").config;
 require('dotenv').config();
 
 
 // Define middleware here
-
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb" }));
+app.use(cors());
+
 app.use((req,res,next)=>{
   console.log(req.url, req.method, res.statusCode)
   next()
@@ -26,35 +29,32 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
 
 // Define API routes here
 app.use("/api", require("./routes/api"))
-app.post("/api/upload", async (req,res) => {
-    res.json("ok");
-    console.log(new Date());
 
-    // try {
-    //   const fileString = file.req.data;
-    //   console.log(fileString)
-    //   const uploadedResponse = await cloudinary.uploader.upload(fileString, {
-    //     upload_preset: "dev"
-    //   })
-    //   console.log(uploadedResponse)
-    //   res.json({msg: "Image Uploaded"})
-    // } catch (error) {
-    //   console.log(error)
-    //   res.status(500).json({err: "Oops, Something Went Wrong"})
-      
-    // }
+// app.get("/api/images", (req, res) => {
+//   console.log(new Date());
+//   res.json("ok");
+//   const { resources } = cloudinary.search
+//   .expression("folder:dev")
+//   .sort_by("public_id", "desc")
+//   .max_results(30)
+//   .execute();
+//   const publicIds =  resources.map(file => file.public_id);
+//   res.send(publicIds);
+// })
+app.post('/api/upload', async (req, res) => {
+    try {
+        const fileString = req.body.data;
+        console.log(fileString);
+        // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+        //     upload_preset: 'dev',
+        // });
+    //     console.log(uploadResponse);
+    //     res.json({ msg: 'image uploaded' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ err: 'Something went wrong' });
+    }
 });
-app.get("/api/images", async(req, res) => {
-  console.log(new Date());
-  res.json("ok");
-  // const { resources } = await cloudinary.search
-  // .expression("folder: dev")
-  // // .sort_by("public_id", desc)
-  // // .max_results(30)
-  // // .execute();
-  // const publicIds =  resources.map(file => file.public_id);
-  // res.send(publicIds);
-})
 
 app.get("*", (req, res) => {
   res.redirect("/");

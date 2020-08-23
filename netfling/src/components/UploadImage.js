@@ -1,6 +1,6 @@
 import React, { useState }from "react";
-// import e from "express";
-import Images from "../components/Images";
+// import Images from "../components/Images";
+// import axios from "axios";
 
 
 
@@ -24,40 +24,54 @@ function UploadImage() {
 
     const fileUploadHandler = (event) => {
       console.log("submitting");
-    //   event.preventDefault();
+      event.preventDefault();
       if(!previewSource)
       return; 
       uploadImage(previewSource);
     };
 
-    const uploadImage = async (base64EncodedImage) => {
+    const uploadImage = async(base64EncodedImage) => {
+      const Imagedata = base64EncodedImage
+      // const fd = new FormData();
       console.log(base64EncodedImage);
-      try {
-        await fetch("api/upload", {
+      // fd.append("Image", setPreviewSource,)
+          // axios.post("/api/upload", fd)
+          // .then(res =>{
+          //   console.log(res);
+          // });
+        await fetch("/api/upload", {
+          
           method: "POST",
-          body: JSON.stringify({data: base64EncodedImage}),
-          headers: {"Content-type": "application/json"}
-        })
-      } catch (error) {
-        console.log(error);
-      };
+          body: JSON.stringify({data: Imagedata}),
+          // headers: {"Content-type": "application/json"}
+        });
     };
+
+    // async function uploadImage(base64EncodedImage) {
+    //   // console.log(data);
+    //       //   console.log(base64EncodedImage);
+
+    //     await fetch("/api/upload", {
+    //       method: "POST",
+    //       body: JSON.stringify(data)
+    //     });
+    // };
 
     return (
       <>
-      <form>
+      <form onSubmit={fileUploadHandler} className="form">
           <input type="file" name="image" onChange={fileSelectedHandler} value={fileInput} className="form-input" />
           <button className="btn waves-effect waves-light"
               id="btn"
               type="submit"
               name="image"
-              onClick={fileUploadHandler} >Upload My Picture
-          </button> 
+              >Upload My Picture
+          </button>
       </form>
       {/* <Images /> */}
       {previewSource && (
-          <img src={previewSource} alt="" 
-          style={{height: "300px"}} />
+          <img src={previewSource} alt="preview" 
+          style={{height: "200px", width: "200px"}} />
       )}
       </>
     );
