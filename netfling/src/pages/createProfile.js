@@ -36,6 +36,9 @@ const UsersGender = [
 ]
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
+
+  let resultShowArr=[];
+
   // Choices State
   const [choices, setChoices] = useState(
     {
@@ -45,7 +48,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       usersGender: "",
       usergenderPreference: "",
       img: "",
-      shows: []
+      shows:[]
     }
   );
 
@@ -59,11 +62,13 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
     setChoices({ ...choices, [name]: value });
   };
 
-  // handleSelect func
-  const handleSelect = (e) => {
-    console.log(e);
-    // const { name, eventKey } = e.target;
-    // setChoices({ ...choices, [name]: eventKey });
+
+  const handleSelectShows = (e) => {
+    let newShow= e;
+    if(resultShowArr.length>=3){
+      setChoices({ ...choices, "shows": resultShowArr})
+    } 
+    return resultShowArr.push(newShow);
   }
 
   // handle Submit event
@@ -91,6 +96,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           onChange={handleInputChange}
         />
 
+
         {/* Age, int */}
         <User
           placeholder="Insert Age here"
@@ -107,12 +113,10 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
         {/* Upload Pic */}
 
-        <DropdownButton onSelect={handleSelect} id="dropdown-basic-button" variant="danger" title="Your Gender">
+        <DropdownButton onSelect={e => setChoices({ ...choices, "usersGender": e })} id="dropdown-basic-button" variant="danger" title="Your Gender">
           {UsersGender.map(gender =>
             <Dropdown.Item
-              // as="button"
               key={gender.id}
-              name="usersGender"
               eventKey={gender.name}
             >
               {gender.name}
@@ -121,12 +125,11 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
         </DropdownButton>
 
         {/* Gender Pref Dropdown */}
-        <DropdownButton onSelect={handleSelect} id="dropdown-basic-button" variant="danger" title="Your Preference">
+        <DropdownButton onSelect={e => setChoices({ ...choices, "usergenderPreference": e })} id="dropdown-basic-button" variant="danger" title="Your Preference">
           {UserGenderPrefArr.map(preference =>
             <Dropdown.Item
-              // as="button"
               key={preference.id}
-              name="usergenderPreference"
+              // name="usergenderPreference"
               eventKey={preference.name}
             >
               {preference.name}
@@ -137,12 +140,13 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
         <p>Choose your top 4 and get matched</p>
 
         {/* series Dropdown */}
-        <DropdownButton id="dropdown-basic-button" variant="danger" title="Choose Netflix series">
+        <DropdownButton onSelect={handleSelectShows} id="dropdown-basic-button" variant="danger" title="Choose Netflix series">
           {Series.map(series =>
             <Dropdown.Item
-              as="button"
+              // as="button"
               key={series.id}
-              name={series.name}
+              // name={series.name}
+              eventKey={series.name}
             >
               {series.name}
             </Dropdown.Item>
@@ -150,18 +154,22 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
         </DropdownButton>
 
         {/* Movie Dropdown */}
-        <DropdownButton id="dropdown-basic-button" variant="danger" title="Choose Netflix Movie">
+        <DropdownButton onSelect={handleSelectShows} id="dropdown-basic-button" variant="danger" title="Choose Netflix Movie">
           {Movies.map(movie =>
             <Dropdown.Item
-              as="button"
+              // as="button"
               key={movie.id}
-              name={movie.name}
+              eventKey={movie.name}
+            // name={movie.name}
             >
               {movie.name}
             </Dropdown.Item>
           )}
         </DropdownButton>
+      
+        
       </form>
+
 
       {/*Card Infor  */}
       <div className="card">
