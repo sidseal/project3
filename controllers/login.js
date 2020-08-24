@@ -75,9 +75,14 @@ module.exports = {
                 id: dbUser.id,
                 pickedShows: dbUser.shows
             };
+
+            // let testUsers= await db.User.find({email: { $ne: req.body.email }, usersGender: dbUser.usersgenderPreference})
+            // console.log(testUsers)
             // get all users (email, shows, gender prefrence, pic)
             let dbUsers = await db.User.find({ email: { $ne: req.body.email } })
             let matchedUsers = [];
+
+            // console.log("we hit matches",dbUsers,dbUser)
 
             // For each candidate user
             //   For each of the candidate's shows
