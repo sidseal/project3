@@ -4,6 +4,7 @@ import shows from "../../src/shows.json";
 import ShowChoices from "../components/Choices";
 import Card from 'react-bootstrap/Card';
 import API from '../utils/API';
+import { Link } from "react-router-dom";
 import "../styles/profile.css";
 
 
@@ -16,10 +17,12 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
     }
   );
 
-  const [userProfile, setUserProfile] = useState(
+
+  const [currentUser, setCurrentUser] = useState(
     {
       username: "",
       age: "",
+      contactEmail: "",
       usersGender: "",
       usergenderPreference: "",
       img: "",
@@ -37,31 +40,40 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
   };
 
   useEffect(() => {
-    API.getUser(loggedUser._id).then(
-      response => {
-        // console.log(response);
-        setUserProfile({
-          username: response.data.userName,
+
+
+
+    let data = localStorage.getItem('loggedUserLS');
+    if (data) {
+      setLoggedUser(JSON.parse(data));
+
+    API.getUser(loggedUser._id).then(response => {
+        setCurrentUser({ 
+          ...currentUser, 
+          username: response.data.username,
           age: response.data.age,
+          contactEmail: response.data.contactEmail,
           usersGender: response.data.usersGender,
-          usergenderPreference: response.data.usersgenderPreference,
-          img: "",
+          usergenderPreference: response.data.usergenderPreference,
+          // img: response.data.img,
           shows: [response.data.shows]
-        });
-        console.log(userProfile);
-      },
-    )
-    // return (loggedUser,[]) => {
+         });
+      })
+    }
+
+
+    // return() => {
     //   console.log(loggedUser._id)
     // }
   }, []);
-
-
+console.log("currentUse, profile",currentUser);
   return (
 
     <div>
       {/* Current User Card Info */}
-      <h3>Hey {loggedUser.username} </h3>
+
+      <h3>Hey {currentUser.username} </h3>
+
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
           {/* <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img> */}
@@ -118,6 +130,11 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
         </Card>
       )}
 
+      <Link to={"/create"} >
+        <strong>
+          Edit Profile
+        </strong>
+      </Link>
       <form action="/login" method="get">
         <button class="btn btn-submit" type="submit" name="logout-submit">Logout</button>
       </form>

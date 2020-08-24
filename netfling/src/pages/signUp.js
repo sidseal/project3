@@ -30,15 +30,20 @@ function SignUp({ setLoggedUser, loggedUser }) {
     })
       .then(response => {
         console.log("handleSubmit", response)
-        const servedId = response.data._id
+        const servedId = response.data._id;
+       
         // setLoggedUser(...loggedUser, { id: response.data._id })
         // window.location.redirect(`/create?id=${response.data._id}`)
-        setByeBye({ render: true, id: servedId })
+
         setLoggedUser({ ...loggedUser, _id: servedId });
+        setByeBye({ render: true, id: servedId });
+
       })
       .catch(response => console.log("handleSubmiterr", response))
 
   };
+ 
+    localStorage.setItem('loggedUserLS',JSON.stringify(loggedUser));
 
   return (
     <>
