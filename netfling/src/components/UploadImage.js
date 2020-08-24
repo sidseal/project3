@@ -7,6 +7,8 @@ import React, { useState }from "react";
 function UploadImage() {
     const [fileInput, setFileInput] = useState("");
     const [previewSource, setPreviewSource] = useState("");
+    const [successMsg, setSuccessMsg] = useState('');
+    const [errMsg, setErrMsg] = useState('');
 
     const fileSelectedHandler = (event) => {
         const file = event.target.files[0];
@@ -30,32 +32,23 @@ function UploadImage() {
       uploadImage(previewSource);
     };
 
-    const uploadImage = async(base64EncodedImage) => {
-      const Imagedata = base64EncodedImage
-      // const fd = new FormData();
-      console.log(base64EncodedImage);
-      // fd.append("Image", setPreviewSource,)
-          // axios.post("/api/upload", fd)
-          // .then(res =>{
-          //   console.log(res);
-          // });
-        await fetch("/api/upload", {
-          
-          method: "POST",
-          body: JSON.stringify({data: Imagedata}),
-          // headers: {"Content-type": "application/json"}
-        });
+    const uploadImage = (base64EncodedImage) => {
+      // try {
+           fetch("/api/upload", {
+              method: "POST",
+              body: JSON.stringify({ data: base64EncodedImage }),
+              headers: { "Content-Type": "application/json" },
+          });
+          setFileInput("");
+          setPreviewSource("");
+          setSuccessMsg("Image uploaded successfully");
+      // } catch (err) {
+          // console.error(err);
+          // setErrMsg("Something went wrong!");
+
+      // };
+
     };
-
-    // async function uploadImage(base64EncodedImage) {
-    //   // console.log(data);
-    //       //   console.log(base64EncodedImage);
-
-    //     await fetch("/api/upload", {
-    //       method: "POST",
-    //       body: JSON.stringify(data)
-    //     });
-    // };
 
     return (
       <>
