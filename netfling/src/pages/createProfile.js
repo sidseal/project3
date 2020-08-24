@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { User } from "../components/Create";
 import shows from "../../src/shows.json";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import API from '../utils/API';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Axios from "axios";
 import "../styles/createProfile.css";
 // import { DropdownList, Dropdown} from "../components/Create";
@@ -37,8 +37,7 @@ const UsersGender = [
 
 function CreateProfile({ setLoggedUser, loggedUser }) {
 
-  let resultShowArr=[];
-
+  let resultShowArr = [];
   // Choices State
   const [choices, setChoices] = useState(
     {
@@ -48,9 +47,17 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       usersGender: "",
       usergenderPreference: "",
       img: "",
-      shows:[]
+      shows: []
     }
   );
+
+  useEffect(() => {
+    let data = localStorage.getItem('loggedUserLS');
+    if (data) {
+      setLoggedUser(JSON.parse(data));
+    }
+
+  }, [])
 
   // Filtered Arrays
   const Series = shows.filter(series => series.type === "Series");
@@ -62,12 +69,12 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
     setChoices({ ...choices, [name]: value });
   };
 
-
+  // Sets shows selection
   const handleSelectShows = (e) => {
-    let newShow= e;
-    if(resultShowArr.length>=3){
-      setChoices({ ...choices, "shows": resultShowArr})
-    } 
+    let newShow = e;
+    if (resultShowArr.length >= 3) {
+      setChoices({ ...choices, "shows": resultShowArr })
+    }
     return resultShowArr.push(newShow);
   }
 
@@ -83,9 +90,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
       })
       .catch(response => console.log("handleSubmiterr", response))
-
   };
 
+  console.log(loggedUser);
   return (
     <>
       <form>
@@ -166,8 +173,8 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
             </Dropdown.Item>
           )}
         </DropdownButton>
-      
-        
+
+
       </form>
 
 
@@ -189,6 +196,12 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           name="action">
           Create My Profile!</button>
       </div>
+
+      <Link to={"/profile"} >
+        <strong>
+          Go to Profile
+        </strong>
+      </Link>
 
       {/* Logout Button */}
       <form action="/login" method="get">
