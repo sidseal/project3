@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { User } from "../components/Create";
 import shows from "../../src/shows.json";
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -38,7 +38,6 @@ const UsersGender = [
 function CreateProfile({ setLoggedUser, loggedUser }) {
 
   let resultShowArr=[];
-
   // Choices State
   const [choices, setChoices] = useState(
     {
@@ -52,6 +51,14 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
     }
   );
 
+  useEffect(()=>{
+    let data= localStorage.getItem('loggedUserLS');
+    if (data){
+      setLoggedUser(JSON.parse(data));
+    }
+
+  }, [])
+
   // Filtered Arrays
   const Series = shows.filter(series => series.type === "Series");
   const Movies = shows.filter(movie => movie.type === "Movie");
@@ -62,7 +69,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
     setChoices({ ...choices, [name]: value });
   };
 
-
+  // Sets shows selection
   const handleSelectShows = (e) => {
     let newShow= e;
     if(resultShowArr.length>=3){
@@ -83,9 +90,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
       })
       .catch(response => console.log("handleSubmiterr", response))
-
   };
 
+  console.log(loggedUser);
   return (
     <>
       <form>
