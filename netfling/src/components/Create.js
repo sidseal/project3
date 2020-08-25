@@ -24,7 +24,7 @@ export function Dropdown(props) {
 
 export function FormBtn(props) {
   return (
-      <button className="btn waves-effect waves-light" type="submit" name="action" {...props}>{props.children}
+      <button className="btn waves-effect waves-light black" id= "button-text" type="submit" name="action" {...props}>{props.children}
       </button>
   );
 }

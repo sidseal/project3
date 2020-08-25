@@ -90,7 +90,7 @@ function SignUp({ setLoggedUser, loggedUser }) {
         <div //to={"/create"} 
           onClick={handleSubmit} >
           <button
-            className="btn waves-effect waves-light"
+            className="btn waves-effect waves-light black" id= "button-text"
             type="submit"
             name="action">
             Sign Up</button>

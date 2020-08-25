@@ -4,7 +4,7 @@ import React from "react";
 function Header() {
     return (
         <div>
-        <img src="./assets/ourlogo.png" alt="logo"></img>
+        <img src="./assets/NetFlingLogo.jpeg" alt="logo"></img>
         </div>
     );
 }
