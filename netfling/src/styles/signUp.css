@@ -1,3 +1,32 @@
-button {
-    background-color: rgb(199, 47, 47);
-}
+/* label color */
+.input-field label {
+    color: rgb(2, 2, 2);
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: rgb(248, 2, 2);
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(252, 2, 2);
+    box-shadow: 0 1px 0 0 rgb(247, 2, 2);
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid rgb(248, 3, 3);
+    box-shadow: 0 1px 0 0 rgb(248, 1, 1);
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid rgb(247, 3, 3);
+    box-shadow: 0 1px 0 0 rgb(248, 2, 2);
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: rgb(250, 1, 1);
+  }
+
+  #button-text {
+      color: white;
+  }
+  

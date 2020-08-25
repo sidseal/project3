@@ -136,7 +136,7 @@ console.log("currentUse, profile",currentUser);
         </strong>
       </Link>
       <form action="/login" method="get">
-        <button class="btn btn-submit" type="submit" name="logout-submit">Logout</button>
+        <button class="btn btn-submit black" id= "button-text" type="submit" name="logout-submit">Logout</button>
       </form>
 
     </div>
