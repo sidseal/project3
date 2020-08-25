@@ -112,7 +112,7 @@ console.log("currentUse, profile",currentUser);
       </div>
 
       <FormBtn
-      // onClick={handleSubmit}
+      onClick={handleSubmit}
       >Get Matches</FormBtn>
 
       {/* Mapped Matched Users Cards genertaed */}

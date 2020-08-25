@@ -21,8 +21,9 @@ if (process.env.NODE_ENV === "production") {
 
 // process.env.MONGODB_URI
 
-console.log(process.env)
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
+console.log("process.env",process.env)
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user")
 
 
 

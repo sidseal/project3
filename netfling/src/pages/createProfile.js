@@ -96,7 +96,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       .catch(response => console.log("handleSubmiterr", response))
   };
 
-  console.log(loggedUser);
+  // console.log(loggedUser);
   return (
     <>
   
