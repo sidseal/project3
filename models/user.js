@@ -18,7 +18,6 @@ const userSchema = new Schema({
   contactEmail: { 
     type: String, 
     required: false,
-    unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
    },
   age: { type: Number, required: false },

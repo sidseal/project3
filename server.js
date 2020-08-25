@@ -6,7 +6,9 @@ const app = express();
 var cors = require('cors');
 
 const mongoose = require("mongoose");
+
 require('dotenv').config();
+
 
 // Define middleware here
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
@@ -22,7 +24,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("netfling/build"));
 }
 
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user");
+
 
 // Define API routes here
 app.use("/api", require("./routes/api"))

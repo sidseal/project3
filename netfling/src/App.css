@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+#bottom-footer {    position: relative;    height: 100px;    margin-top: 150px;    clear: both;}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

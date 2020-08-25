@@ -17,6 +17,8 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
     }
   );
 
+
+
   const [currentUser, setCurrentUser] = useState(
     {
       username: "",
@@ -39,6 +41,8 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
   };
 
   useEffect(() => {
+
+
     let data = localStorage.getItem('loggedUserLS');
     if (data) {
       setLoggedUser(JSON.parse(data));
@@ -51,11 +55,14 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           contactEmail: response.data.contactEmail,
           usersGender: response.data.usersGender,
           usergenderPreference: response.data.usergenderPreference,
+
           img: response.data.img,
+
           shows: [response.data.shows]
          });
       })
     }
+
 
     // return() => {
     //   console.log(loggedUser._id)
@@ -63,10 +70,13 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
   }, []);
 console.log("currentUse, profile",currentUser);
   return (
+
     <div>
       {/* Current User Card Info */}
+
       <h3>Hey {currentUser.username} </h3>
       <img src={currentUser.img}/>
+
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
           {/* <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img> */}
@@ -105,7 +115,9 @@ console.log("currentUse, profile",currentUser);
       </div>
 
       <FormBtn
+
       // onClick={handleSubmit}
+
       >Get Matches</FormBtn>
 
       {/* Mapped Matched Users Cards genertaed */}
@@ -129,7 +141,7 @@ console.log("currentUse, profile",currentUser);
         </strong>
       </Link>
       <form action="/login" method="get">
-        <button class="btn btn-submit" type="submit" name="logout-submit">Logout</button>
+        <button class="btn btn-submit black" id= "button-text" type="submit" name="logout-submit">Logout</button>
       </form>
 
     </div>

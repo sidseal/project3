@@ -5,6 +5,7 @@ import API from '../utils/API';
 function UploadImage() {
     const [fileInput, setFileInput] = useState("");
     const [previewSource, setPreviewSource] = useState("");
+
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [choices, setChoices] = useState(
@@ -13,6 +14,7 @@ function UploadImage() {
         }
       );
 
+
     const fileSelectedHandler = (event) => {
         const file = event.target.files[0];
         console.log(file);
@@ -20,6 +22,7 @@ function UploadImage() {
     };
 
     const previewFile = (file) => {
+
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () => {
@@ -83,6 +86,7 @@ function UploadImage() {
                     style={{ height: "200px", width: "200px" }} />
             )}
         </>
+
     );
 };
 

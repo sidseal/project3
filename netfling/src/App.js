@@ -6,8 +6,9 @@ import Login from "./pages/login";
 import SignUp from "./pages/signUp";
 import CreateProfile from "./pages/createProfile";
 import RenderProfile from "./pages/profile";
-// import { FormBtn } from "./components/Create";
 import './App.css';
+import './index.css';
+// import { FormBtn } from "./components/Create";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -20,35 +21,38 @@ function App() {
   );
 
 
-
   return (
+
     <Router>
-      <div className="App">
-        <Header />
-        <Switch>
+      <div className="App background" >
+        <div className="container">
+          <Header />
+          <Switch>
 
-          <Route exact path={["/", "/login"]}>
-            <Login setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
-          </Route>
+            <Route exact path={["/", "/login"]}>
+              <Login setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+            </Route>
 
-          <Route path="/signup">
-            <SignUp setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
-          </Route>
+            <Route path="/signup">
+              <SignUp setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+            </Route>
 
-          <Route exact path="/create">
-            <CreateProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
-          </Route>
+            <Route exact path="/create">
+              <CreateProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+            </Route>
 
-          <Route exact path="/profile">
-            {/* <FormBtn onClick={window.location.assign("/profile")}>Create My Profile!</FormBtn> */}
-            <RenderProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser}/>
-          </Route>
-{/* 
+            <Route exact path="/profile">
+              {/* <FormBtn onClick={window.location.assign("/profile")}>Create My Profile!</FormBtn> */}
+              <RenderProfile setLoggedUser={setLoggedUser} loggedUser={loggedUser} />
+            </Route>
+            {/* 
           <Route exact path="/create">
             <CreateProfile />
           </Route> */}
 
-        </Switch>
+          </Switch>
+
+        </div>
         <Footer />
       </div>
     </Router>

@@ -78,7 +78,7 @@ function Login({ setLoggedUser, loggedUser }) {
         </Link>
 
         <div onClick={handleSubmit} >
-          <button className="btn waves-effect waves-light"
+          <button className="btn waves-effect waves-light black" id= "button-text"
             type="submit"
             name="action"
           >Login
