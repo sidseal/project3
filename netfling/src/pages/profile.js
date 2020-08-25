@@ -18,6 +18,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
   );
 
 
+
   const [currentUser, setCurrentUser] = useState(
     {
       username: "",
@@ -42,7 +43,6 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
   useEffect(() => {
 
 
-
     let data = localStorage.getItem('loggedUserLS');
     if (data) {
       setLoggedUser(JSON.parse(data));
@@ -55,7 +55,9 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           contactEmail: response.data.contactEmail,
           usersGender: response.data.usersGender,
           usergenderPreference: response.data.usergenderPreference,
-          // img: response.data.img,
+
+          img: response.data.img,
+
           shows: [response.data.shows]
          });
       })
@@ -73,6 +75,7 @@ console.log("currentUse, profile",currentUser);
       {/* Current User Card Info */}
 
       <h3>Hey {currentUser.username} </h3>
+      <img src={currentUser.img}/>
 
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
@@ -112,7 +115,9 @@ console.log("currentUse, profile",currentUser);
       </div>
 
       <FormBtn
-      onClick={handleSubmit}
+
+      // onClick={handleSubmit}
+
       >Get Matches</FormBtn>
 
       {/* Mapped Matched Users Cards genertaed */}

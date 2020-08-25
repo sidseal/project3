@@ -3,9 +3,9 @@ import { User } from "../components/Create";
 import shows from "../../src/shows.json";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import UploadImage from '../components/UploadImage';
+// import Images from "../components/Images";
 import API from '../utils/API';
-
-import { Redirect } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
@@ -84,6 +84,7 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
 
   // handle Submit event
   const handleSubmit = e => {
+
     // api call to update profile
     API.createProfile({
       id: loggedUser._id,
@@ -96,7 +97,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       .catch(response => console.log("handleSubmiterr", response))
   };
 
-  // console.log(loggedUser);
+
+  console.log(loggedUser);
+
   return (
     <>
   
@@ -123,7 +126,9 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
           onChange={handleInputChange}
         />
 
-        {/* Upload Pic */}
+        {/* Upload Pic form */}
+        <UploadImage />
+
 
         <DropdownButton onSelect={e => setChoices({ ...choices, "usersGender": e })} id="dropdown-basic-button" variant="danger" title="Your Gender">
           {UsersGender.map(gender =>
@@ -186,7 +191,8 @@ function CreateProfile({ setLoggedUser, loggedUser }) {
       {/*Card Infor  */}
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img>
+          {/* <img className="activator" src="" id="thumbnail" alt="profilepic" ></img> */}
+            {/* <Images/> */}
         </div>
         <div className="card-content">
 
