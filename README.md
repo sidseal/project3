@@ -2,9 +2,9 @@
 ​
 [![Generic Badge](https://img.shields.io/badge/version-1.1.0-brightgreen)](https://shields.io/)
 ​
-[Repo: NetFling Application](https://github.com/sidseal/project3/)
+[Repo: AmorFlix Application](https://github.com/sidseal/project3/)
 ​
-[Deployed Site: NetFling Application](https://www.netflix.com/)
+[Deployed Site: AmorFlix Application](https://www.netflix.com/)
 ​
 ## Overview
 ​
@@ -44,7 +44,7 @@ This application was designed to allow users to meet others online by comparing 
 
 ## Development
 ​
-This is a MERN application. We used ReactJS, Node and Express Web Server. The back end was created with MongoDB and Atlas. This application uses both GET and POST routes. This application involves authentication of users. NetFling was deployed using Heroku.
+This is a MERN application. We used ReactJS, Node and Express Web Server. The back end was created with MongoDB and Atlas. This application uses both GET and POST routes. This application involves authentication of users. AmorFlix was deployed using Heroku.
 ​
 ## Future Development
 ​
@@ -54,16 +54,12 @@ We would like to add functionality that would allow our users to communicate thr
 
 * Name: Laura Hernandez
 * Github: [Laura915](https://github.com/Laura915)
-* Email: 
 
 * Name: Macy Molina
 * Github: [Macymo](https://github.com/Macymo)
-* Email: 
 
 * Name: Siddhant Seal
 * Github: [sidseal](https://github.com/sidseal)
-* Email: 
 
 * Name: Ben Huntley
 * Github: [b7t7h7](https://github.com/b7t7h7)
-* Email: b7t7h7@yahoo.com
