@@ -23,10 +23,9 @@ if (process.env.NODE_ENV === "production") {
 
 console.log("process.env",process.env)
 
-mongoose.connect("mongodb+srv://netflingAdmin:XvyufEcp1sYeZKTj@netfling.0zpdp.mongodb.net/user?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user")
 
 
-// process.env.MONGODB_URI || "mongodb://localhost/user"
 
 // Define API routes here
 app.use("/api", require("./routes/api"))
