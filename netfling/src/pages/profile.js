@@ -51,7 +51,7 @@ function RenderProfile({ setLoggedUser, loggedUser }) {
           contactEmail: response.data.contactEmail,
           usersGender: response.data.usersGender,
           usergenderPreference: response.data.usergenderPreference,
-          // img: response.data.img,
+          img: response.data.img,
           shows: [response.data.shows]
          });
       })
@@ -66,6 +66,7 @@ console.log("currentUse, profile",currentUser);
     <div>
       {/* Current User Card Info */}
       <h3>Hey {currentUser.username} </h3>
+      <img src={currentUser.img}/>
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
           {/* <img className="activator" src="https://avatars1.githubusercontent.com/u/59153195?s=460&u=5c4f0554fbecf573645c785ef5ef66db1524bf8b&v=4" id="thumbnail" alt="profilepic" ></img> */}

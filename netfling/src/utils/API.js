@@ -31,5 +31,8 @@ export default {
     },
     createProfile: function(updateUser){
       return axios.put("/api/users/" + updateUser.id,updateUser)
+    },
+    updateImg: function(updateUser){
+      return axios.put("/api/users/" + updateUser.id,updateUser)
     }
   };
